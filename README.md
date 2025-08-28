@@ -7,7 +7,7 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 ## 📍 Índice do projeto 
 <center>
 
-| [Requisito](#requisitos) | [Backlog](#backlog-do-produto) | 
+| [Requisito](#requisitos) | [Integrantes](#integrantes-do-projeto) | [Backlog](#backlog-do-produto) |
 
 </center>
 
@@ -34,6 +34,18 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 - Documentação API;
 - Ter no mínimo 3 tipos de perfis com a seguinte hierarquia: diretor, supervisor (responde a um diretor) e colaborador (responde a um supervisor);
 - Quantidade mínima de 100 registros, sendo no mínimo 7 diretores e mínimo de 2 supervisores para cada diretor.
+
+## Integrantes do Projeto 
+| <center>Linkedin</center> | Integrante | Função | Identificação |
+|-------------------------- |------------|--------|---------------|
+|<a href="https://www.linkedin.com/in/thor-lyndgaard-b2155826b/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Thor Lyndgaard | DEV | <a href=""><center><img src="assets/team-profile/thor.jpg" height="55" width="55"></a></center> |
+|<a href="https://www.linkedin.com/in/lucas-silva-sousa-79058421a/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Lucas Sousa | DEV | <a href=""><center><img src="assets/team-profile/lucas.jpg" height="55" width="55"></a></center> |
+|<a href="https://www.linkedin.com/in/cau%C3%AA-gandini-7928771a2/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Cauê Gandini | P.O | <a href=""><center><img src="assets/team-profile/caue.jpg" height="55" width="55"></a></center> |
+|<a href="https://www.linkedin.com/in/johnatan-souza/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Johnatan Souza | DEV | <a href=""><center><img src="assets/team-profile/john.jpg" height="55" width="55"></a></center> |
+|<a href="https://www.linkedin.com/in/jacksonmoraes/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Jackson Tadeu | SCM | <a href=""><center><img src="assets/team-profile/jackson.jpg" height="55" width="55"></a></center> |
+|<a href="https://www.linkedin.com/in/davi-gramacho-702a48326/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Davi Gramacho | DEV | <a href=""><center><img src="assets/team-profile/davi.jpg" height="55" width="55"></a></center> |
+|<a href="https://www.linkedin.com/in/abimael-souza-dos-santos-8776751a8/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Abimael dos Santos | DEV | <a href=""><center><img src="assets/team-profile/abimael.jpg" height="55" width="55"></a></center> |
+|<a href=""><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin" ></a> | Andre Luiz | DEV | <a href=""><center><img src="assets/team-profile/andre.jpg" height="55" width="55"></a></center> |
 
 ## Backlog do Produto
 
