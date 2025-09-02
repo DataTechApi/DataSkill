@@ -50,3 +50,17 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 ## Backlog do Produto
 
 <img src = "assets/rodape.png">
+
+
+| #   | Título                 | Responsáveis | Status | Prioridade | Sprint | Estimativa |
+|-----|------------------------|--------------|--------|------------|--------|------------|
+| 1   | Modelagem BD           |              |        |            |        |            |
+| 2   | Manual Usuário         |              |        |            |        |            |
+| 3   | Acessibilidade Online  |              |        |            |        |            |
+| 4   | Hospedagem             |              |        |            |        |            |
+| 5   | Interface de cadastros |              |        |            |        |            |
+| 6   | Dashboard              |              |        |            |        |            |
+| 7   | Avaliação gestor       |              |        |            |        |            |
+| 8   | Autenticação           |              |        |            |        |            |
+| 9   | Restrição avaliação    |              |        |            |        |            |
+| 10  | Busca                  |              |        |            |        |            |
