@@ -1,0 +1,16 @@
+POST http://localhost:8080/usuario
+Content-Type: application/json
+
+{
+  "nome": "Jackson",
+  "email": "jackson@gmail.com",
+  "senha": "123456",
+  "cargo":"DIRETOR"
+}
+
+###
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
