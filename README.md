@@ -52,10 +52,12 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 <img src = "assets/rodape.png">
 
 
-| #   | User Story                 | Responsáveis | Status | Prioridade | Sprint | Estimativa |
-|-----|------------------------|--------------|--------|------------|--------|------------|
-| 1   |Como gestor gostaria de visualizar o perfil dos colaboradores, para buscar novos talentos para meu setor           |              |        |            |        |            |
-| 2   | Como gestor gostaria de visualizar um DashBoard, para que eu possa ver a relação de competência de uma área, ou de diversos colaboradores         |              |        |            |        |            |
-| 3   | Como usuário gostaria de realizar uma auto avaliação, para saber se a visão do meu gestor esta contingente. |              |        |            |        |            |
-| 4   |Como gestor gostaria de filtrar as competências do colaborador para saber se encaixa em outra atividade. |              |        |            |        |            |
-| 5   |Como gestor quero alocar algum colaboradores que se encaixam nas skills desejadas, para mapear melhor os talentos do meu departamento|              |        |            |        |            |
+| #  | Prioridade | User Story                                                                                                   | Sprint | Status       |
+|----|------------|--------------------------------------------------------------------------------------------------------------|--------|--------------|
+| 1  | Alta       | Como gestor, quero visualizar o perfil dos colaboradores, para buscar novos talentos para meu setor.    | 2     | Pendente   |
+| 2  | Alta       | Como gestor, quero visualizar um Dashboard, para que eu possa ver a relação de competência de uma área, ou de diversos colaboradores.| 1      | Pendente  |
+| 3  | Média      | Como usuário, quero realizar uma auto avaliação, para saber se a visão do meu gestor está contingente.  | 2      | Pendente     |
+| 4  | Alta       | Como gestor, quero filtrar as competências do colaborador para saber se encaixa em outra atividade.     | 2     | Pendente    |
+| 5  | Alta       | Como gestor, quero alocar algum colaboradores que se encaixam nas skills desejadas, para mapear melhor os talentos do meu departamento. | 2      | Pendente |
+| 6  | Alta       | Como usuário, quero cadastrar minhas competências para ficar à mostra a todos os supervisores/diretores que tiverem interesse. | 1      | Em andamento |
+| 7  | Média       | Como usuário, eu quero visualizar os perfis dos colegas em uma interface intuitiva, com cards organizados por competências, setor e nível de proficiência, para que eu possa navegar e identificar talentos internos. | 1      | Em andamento |
