@@ -52,15 +52,10 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 <img src = "assets/rodape.png">
 
 
-| #   | Título                 | Responsáveis | Status | Prioridade | Sprint | Estimativa |
+| #   | User Story                 | Responsáveis | Status | Prioridade | Sprint | Estimativa |
 |-----|------------------------|--------------|--------|------------|--------|------------|
-| 1   | Modelagem BD           |              |        |            |        |            |
-| 2   | Manual Usuário         |              |        |            |        |            |
-| 3   | Acessibilidade Online  |              |        |            |        |            |
-| 4   | Hospedagem             |              |        |            |        |            |
-| 5   | Interface de cadastros |              |        |            |        |            |
-| 6   | Dashboard              |              |        |            |        |            |
-| 7   | Avaliação gestor       |              |        |            |        |            |
-| 8   | Autenticação           |              |        |            |        |            |
-| 9   | Restrição avaliação    |              |        |            |        |            |
-| 10  | Busca                  |              |        |            |        |            |
+| 1   |Como gestor gostaria de visualizar o perfil dos colaboradores, para buscar novos talentos para meu setor           |              |        |            |        |            |
+| 2   | Como gestor gostaria de visualizar um DashBoard, para que eu possa ver a relação de competência de uma área, ou de diversos colaboradores         |              |        |            |        |            |
+| 3   | Como usuário gostaria de realizar uma auto avaliação, para saber se a visão do meu gestor esta contingente. |              |        |            |        |            |
+| 4   |Como gestor gostaria de filtrar as competências do colaborador para saber se encaixa em outra atividade. |              |        |            |        |            |
+| 5   |Como gestor quero alocar algum colaboradores que se encaixam nas skills desejadas, para mapear melhor os talentos do meu departamento|              |        |            |        |            |
