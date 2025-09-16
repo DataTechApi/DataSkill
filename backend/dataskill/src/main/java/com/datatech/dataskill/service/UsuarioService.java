@@ -4,6 +4,8 @@ import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UsuarioService {
 
@@ -14,8 +16,12 @@ public class UsuarioService {
     }
 
     public void cadastrarUsuario(Usuario usuario){
-
         usuarioRepository.save(usuario);
-
+    }
+    public Usuario buscarPorEmail(String email){
+        return usuarioRepository.findByEmail(email).orElse(null);
+    }
+    public List<Usuario> listarUsuarios(){
+        return usuarioRepository.findAll();
     }
 }
