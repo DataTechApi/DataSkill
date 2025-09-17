@@ -6,6 +6,7 @@ import com.datatech.dataskill.repository.AutoAvaliacaoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AutoAvaliacaoService {
@@ -27,8 +28,8 @@ public class AutoAvaliacaoService {
         autoAvaliacaoRepository.deleteById(id);
     }
 
-    public AutoAvaliacao buscarIdAutoAvaliacao(Long id) {
-        return autoAvaliacaoRepository.findById(id).get();
+    public Optional<AutoAvaliacao> buscarAutoAvaliacaoId(Long id) {
+        return autoAvaliacaoRepository.findById(id);
     }
 
 

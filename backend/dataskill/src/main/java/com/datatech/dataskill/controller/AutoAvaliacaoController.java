@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -49,21 +50,30 @@ public class AutoAvaliacaoController {
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Realiza a busca da autoavaliação",
-            description = "Ferramenta que permite buscar todas as autoavaliações.")
-    @ApiResponses(value = {@ApiResponse(responseCode = "200")})
+    @Operation(summary = "Realiza a busca da autoavaliação pelo ID",
+            description = "Busca  autoavaliação pelo ID.")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200"), @ApiResponse(responseCode = "404")})
     public ResponseEntity<AutoAvaliacao> buscarIdAutoAvaliacao(@PathVariable Long id) {
-        AutoAvaliacao autoAvaliacaoId = autoAvaliacaoService.buscarIdAutoAvaliacao(id);
-        return ResponseEntity.ok(autoAvaliacaoId);
+        Optional<AutoAvaliacao> autoAvaliacao = autoAvaliacaoService.buscarAutoAvaliacaoId(id);
+        if (autoAvaliacao.isPresent())
+            return ResponseEntity.ok(autoAvaliacao.get());
+        else
+            return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping
     @Operation(summary = "Realiza a exclusão da autoavaliação",
             description = "Ferramenta que permite excluir uma das autoavaliações.")
-    @ApiResponses(value = {@ApiResponse(responseCode = "204")})
-    public ResponseEntity<AutoAvaliacao> deletarAutoAvaliacao(Long id) {
-        autoAvaliacaoService.deletarAutoAvaliacao(id);
-        return ResponseEntity.noContent().build();
+    @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
+    public ResponseEntity deletarAutoAvaliacao(Long id) {
+        Optional<AutoAvaliacao> autoAvaliacao = autoAvaliacaoService.buscarAutoAvaliacaoId(id);
+        if (autoAvaliacao.isPresent()){
+            autoAvaliacaoService.deletarAutoAvaliacao(id);
+            return ResponseEntity.ok().build();
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
 }
