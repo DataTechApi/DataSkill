@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+import java.util.Optional;
+
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @RestController
 @RequestMapping("/experiencia")
-@Tag(name = "experienciacontroller")
-
+@Tag(name = "experiencia-controller")
 public class ExperienciaController {
     private final ExperienciaService experienciaService;
 
@@ -37,19 +39,22 @@ public class ExperienciaController {
         experiencia.setCargo(request.getCargo());
         experiencia.setDataInicio(request.getDataInicio());
         experiencia.setDataFim(request.getDataFim());
-
         experienciaService.cadastrarExperiencia(experiencia);
-        return ResponseEntity.ok().build();
+        URI uri = URI.create("/experiencia/"+experiencia.getId());
+        return ResponseEntity.created(uri).build();
 
     }
 
     
     @GetMapping("/{id}")
     @Operation(summary = "Busca experiência por ID")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
     public ResponseEntity<Experiencia> buscarPorId(@PathVariable Long id) {
-        return ResponseEntity.of(experienciaService.buscarPorId(id));
+        Optional<Experiencia> experiencia = experienciaService.buscarPorId(id);
+        if(experiencia.isPresent()){
+            return ResponseEntity.ok(experiencia.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
-
-    
-
 }
