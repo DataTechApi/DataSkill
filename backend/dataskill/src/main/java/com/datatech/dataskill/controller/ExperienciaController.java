@@ -22,6 +22,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 @RestController
 @RequestMapping("/experiencia")
 @Tag(name = "experiencia-controller")
+
 public class ExperienciaController {
     private final ExperienciaService experienciaService;
 
@@ -39,8 +40,8 @@ public class ExperienciaController {
         experiencia.setCargo(request.getCargo());
         experiencia.setDataInicio(request.getDataInicio());
         experiencia.setDataFim(request.getDataFim());
+        URI uri = URI.create("/usuario/"+experiencia.getId());
         experienciaService.cadastrarExperiencia(experiencia);
-        URI uri = URI.create("/experiencia/"+experiencia.getId());
         return ResponseEntity.created(uri).build();
 
     }
@@ -51,10 +52,12 @@ public class ExperienciaController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
     public ResponseEntity<Experiencia> buscarPorId(@PathVariable Long id) {
         Optional<Experiencia> experiencia = experienciaService.buscarPorId(id);
-        if(experiencia.isPresent()){
+        if(experiencia.isPresent())
             return ResponseEntity.ok(experiencia.get());
-        }else{
+        else
             return ResponseEntity.notFound().build();
-        }
     }
+
+    
+
 }

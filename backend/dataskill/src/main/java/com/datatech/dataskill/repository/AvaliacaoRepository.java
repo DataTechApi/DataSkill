@@ -1,9 +1,9 @@
 package com.datatech.dataskill.repository;
 
-import com.datatech.dataskill.entity.model.Experiencia;
+import com.datatech.dataskill.entity.model.Avaliacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ExperienciaRepository extends JpaRepository <Experiencia,Long>{
+public interface AvaliacaoRepository extends JpaRepository<Avaliacao,Long> {
 }
