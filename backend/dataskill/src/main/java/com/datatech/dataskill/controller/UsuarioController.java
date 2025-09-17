@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -48,11 +49,11 @@ public class UsuarioController {
     @Operation(summary = "Busca usuário por email", description = "Busca um usuário pelo email cadastrado")
     @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
     public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email){
-        Usuario usuario = usuarioService.buscarPorEmail(email);
-        if(usuario == null){
-            return ResponseEntity.status(NOT_FOUND).build();
-        }
-        return ResponseEntity.ok(usuario);
+        Optional<Usuario> usuario = usuarioService.buscarPorEmail(email);
+        if(usuario.isPresent())
+            return ResponseEntity.ok(usuario.get());
+        else
+            return ResponseEntity.notFound().build();
     }
     @GetMapping
     @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usários no banco de dados")
