@@ -1,6 +1,5 @@
 package com.datatech.dataskill;
 
-import com.datatech.dataskill.entity.model.Usuario;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
