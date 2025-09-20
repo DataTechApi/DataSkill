@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
-@Tag(name = "usuario-controller")
+@Tag(name = "usuario")
 public class UsuarioController {
     private final UsuarioService usuarioService;
 
@@ -52,7 +52,7 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
     }
     @GetMapping
-    @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usários no banco de dados")
+    @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usuários no banco de dados")
     @ApiResponses(value = {@ApiResponse(responseCode = "200")})
     public ResponseEntity<List<Usuario>> listarUsuarios(){
         List<Usuario> usuarios = usuarioService.listarUsuarios();

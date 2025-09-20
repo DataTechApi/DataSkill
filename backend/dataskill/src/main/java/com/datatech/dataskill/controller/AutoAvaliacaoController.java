@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/autoAvaliacao")
-@Tag(name = "autoavaliacao-controller")
+@Tag(name = "autoavaliacao")
 public class AutoAvaliacaoController {
     private final AutoAvaliacaoService autoAvaliacaoService;
 

@@ -21,7 +21,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @RestController
 @RequestMapping("/experiencia")
-@Tag(name = "experiencia-controller")
+@Tag(name = "experiencia")
 
 public class ExperienciaController {
     private final ExperienciaService experienciaService;

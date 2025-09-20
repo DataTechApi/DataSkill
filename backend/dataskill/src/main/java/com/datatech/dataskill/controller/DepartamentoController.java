@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/departamento")
-@Tag(name = "departamento-controller")
+@Tag(name = "departamento")
 public class DepartamentoController {
 
     private final DepartamentoService departamentoService;

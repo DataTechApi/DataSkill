@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/certificado")
-@Tag(name = "certificado-controller", description = "API de certificados")
+@Tag(name = "certificado", description = "API de certificados")
 public class CertificadoController {
 
     private final CertificadoService certificadoService;
