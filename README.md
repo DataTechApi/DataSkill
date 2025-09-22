@@ -50,4 +50,14 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 | 7  | Média       | Como usuário, eu quero visualizar os perfis dos colegas em uma interface intuitiva, com cards organizados por competências, setor e nível de proficiência, para que eu possa navegar e identificar talentos internos. | 1      | Em andamento |
 | 8  | Média       | Como usuário, quero que o produto seja entregue com todas a documentações e manuais de usuário, para que haja uma melhor organização e orientação quando formos usar o sistema | 3  | Pendente|
 
+## Definition of Ready (DoR)
+- Historias devem ter sido criadas padronizadas
+- Possuir estimativa
+- Identificação de impacto
+
+## Definition of Done (DoD)
+- Funcionalidades testadas
+- Código deve ser validado por outro desenvolvedor
+- Funcionalidade deve fazer sentido com o que foi pedido na tarefa
+
 <img src = "assets/rodape.png">
