@@ -14,26 +14,16 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 ## Requisitos
 ### Requisitos Funcionais
 
-- Implementar Aplicação usando Linguagem de Programação Java Web para BackEnd;
-- Implementar Aplicação usando conceitos de Orientação a Objetos;
-- Utilizar IDE´s na implementação de aplicação em Java;
-- Aplicar técnicas de depuração e análise de logs através da ID com suporte para a LP Java;
-- Implementar web services REST;
-- Implementar clientes para consumir web services;
-- Implementar projeto de Banco de Dados Relacional em termos de seus principais objetos(Schema, Tabelas, Views, índice).
-- Implementar consultas em um banco de dados relacional, utilizando junções, subconsultas e agrupamentos;
-- Implementar manutenção de dados utilizando DML.
+- Desenvolver uma interface de administrador, com cadastro de usuários.
+- Desenvolver um DashBoard com perfis de times.
+- Permitir haver avaliação de gestor e do próprio funcionário
 
 ### Requisitos Não Funcionais
 
-- Manual de Instalação;
-- Manual do Usuário;
-- Front Minimalista;
-- Modelo de banco de dados relacional estruturado conforme o modelo entidade-relacionamento (MER), devidamente normalizado até a terceira forma normal (3FN);
-- A modelagem de dados deve ser documentada e validada antes do início da implementação de cada sprint, incluindo os modelos conceitual, lógico, físico e o dicionário de dados;
-- Documentação API;
-- Ter no mínimo 3 tipos de perfis com a seguinte hierarquia: diretor, supervisor (responde a um diretor) e colaborador (responde a um supervisor);
-- Quantidade mínima de 100 registros, sendo no mínimo 7 diretores e mínimo de 2 supervisores para cada diretor.
+- Guia de instalação, github e hospedagem.
+- Manual do usuário.
+- Modelagem Banco de dados.
+- Desejável que o sistema seja acessível online
 
 ## Integrantes do Projeto 
 | <center>Linkedin</center> | Integrante | Função | Identificação |
@@ -49,9 +39,6 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 
 ## Backlog do Produto
 
-<img src = "assets/rodape.png">
-
-
 | #  | Prioridade | User Story                                                                                                   | Sprint | Status       |
 |----|------------|--------------------------------------------------------------------------------------------------------------|--------|--------------|
 | 1  | Alta       | Como gestor, quero visualizar o perfil dos colaboradores, para buscar novos talentos para meu setor.    | 1     | Em andamento   |
@@ -62,3 +49,5 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 | 6  | Alta       | Como usuário, quero cadastrar minhas competências para ficar à mostra a todos os supervisores/diretores que tiverem interesse. | 1      | Em andamento |
 | 7  | Média       | Como usuário, eu quero visualizar os perfis dos colegas em uma interface intuitiva, com cards organizados por competências, setor e nível de proficiência, para que eu possa navegar e identificar talentos internos. | 1      | Em andamento |
 | 8  | Média       | Como usuário, quero que o produto seja entregue com todas a documentações e manuais de usuário, para que haja uma melhor organização e orientação quando formos usar o sistema | 3  | Pendente|
+
+<img src = "assets/rodape.png">
