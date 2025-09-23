@@ -1,5 +1,7 @@
 package com.datatech.dataskill.controller;
 
+import com.datatech.dataskill.entity.dto.request.UsuarioDTORequest;
+import com.datatech.dataskill.entity.enums.Cargo;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,16 +29,15 @@ public class UsuarioController {
     @Operation(summary = "Cria usuário para logar no sistema",
                 description = "Cria o usuário somente com os dados necessários para o login do sistema")
     @ApiResponses(value = {@ApiResponse(responseCode = "201"),@ApiResponse(responseCode = "400")})
-    public ResponseEntity cadastrarUsuario(@RequestBody Usuario request){
+    public ResponseEntity cadastrarUsuario(@RequestBody UsuarioDTORequest request){
         Usuario usuario = new Usuario();
-        usuario.setNome(request.getNome());
-        usuario.setEmail(request.getEmail());
-        usuario.setSenha(request.getSenha());
-        usuario.setCargo(request.getCargo());
-        usuario.setSoft(request.getSoft());
-        usuario.setHard(request.getHard());
+        usuario.setNome(request.nome());
+        usuario.setEmail(request.email());
+        usuario.setSenha(request.senha());
+        usuario.setCargo(Cargo.valueOf(request.cargo()));
 
-       URI uri = URI.create("/usuario/"+usuario.getEmail());
+
+       URI uri = URI.create(STR."/usuario/\{usuario.getEmail()}");
 
         usuarioService.cadastrarUsuario(usuario);
         return ResponseEntity.created(uri).build();
