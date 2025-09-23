@@ -1,6 +1,6 @@
 package com.datatech.dataskill.entity.enums;
 
-public enum SoftSkill {
+public enum Soft {
     COMUNICACAO,
     RESILIENCIA,
     TRABALHO_EM_EQUIPE;

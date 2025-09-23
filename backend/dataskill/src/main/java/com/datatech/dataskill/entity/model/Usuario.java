@@ -1,9 +1,8 @@
 package com.datatech.dataskill.entity.model;
 
 import com.datatech.dataskill.entity.enums.Cargo;
-import com.datatech.dataskill.entity.enums.HardSkill;
-import com.datatech.dataskill.entity.enums.SoftSkill;
-import jakarta.annotation.Nullable;
+import com.datatech.dataskill.entity.enums.Hard;
+import com.datatech.dataskill.entity.enums.Soft;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,8 +31,8 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Cargo cargo;
     @Enumerated(EnumType.STRING)
-    private List<SoftSkill> soft;
+    private List<Soft> soft;
     @Enumerated(EnumType.STRING)
-    private List<HardSkill> hard;
+    private List<Hard> hard;
 
 }

@@ -1,6 +1,6 @@
 package com.datatech.dataskill.entity.enums;
 
-public enum HardSkill {
+public enum Hard {
     JAVA,
     SPRING,
     PYTHON,
@@ -10,4 +10,6 @@ public enum HardSkill {
     MYSQL,
     JAVASCRIPT,
     ANGULAR;
+
+
 }
