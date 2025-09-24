@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+a{
+    color: white;
+    text-decoration: none;
+}
+
 .background-view{
     background-color: #043259;
     color: white;
@@ -24,10 +29,6 @@
     z-index: 10;
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
-}
 
 .body-index{
     padding-top: 200px;
