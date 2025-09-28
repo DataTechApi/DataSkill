@@ -58,7 +58,8 @@ label{
   justify-content: center; /* centraliza o botão */
   margin-top: 15px;
   width: 100%;
-  margin-left: 25%;
+  margin-left: 15%;
+  gap: 80px;
 }
 
 .form-btn input{
@@ -71,12 +72,11 @@ label{
 }
 
 #btn{
-
   background-color: #043259;
   color: white;
   border: #043259;
   padding: 15px;
-  width: 50%;
+  width: 200%;
   border-radius: 30px;
   font-weight: bold;
 }
