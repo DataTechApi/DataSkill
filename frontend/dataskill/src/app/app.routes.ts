@@ -6,6 +6,7 @@ import { CadastroComponent } from './componentes/pages/cadastro/cadastro.compone
 import { PerfilComponent } from './componentes/pages/perfil/perfil.component';
 import { HardSkillComponent } from './componentes/pages/hard-skill/hard-skill.component';
 import { SoftSkillComponent } from './componentes/pages/soft-skill/soft-skill.component';
+import { ExperienciasComponent } from './componentes/pages/experiencias/experiencias.component';
 
 export const routes: Routes = [
   { path: '', component:IndexComponent},
@@ -13,7 +14,8 @@ export const routes: Routes = [
   { path: 'cadastro', component:CadastroComponent},
   { path: 'perfil', component:PerfilComponent},
   {path: 'hard-skill', component:HardSkillComponent},
-  {path: 'soft-skill', component:SoftSkillComponent}
+  {path: 'soft-skill', component:SoftSkillComponent},
+  {path:'experiencia', component:ExperienciasComponent}
 ];
 
 @NgModule({
