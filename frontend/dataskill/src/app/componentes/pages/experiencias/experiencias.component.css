@@ -1,5 +1,4 @@
 body{
-  background-color: #77BAFE;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -9,7 +8,8 @@ body{
 }
 
 .experiencia-div{
-  background-color: white;
+  color: white;
+  background-color: #043259;
   box-shadow: 3px 2px 2px rgb(68, 68, 68);
   height: 60%;
   width: 40%;
@@ -72,9 +72,9 @@ label{
 }
 
 #btn{
-  background-color: #043259;
-  color: white;
-  border: #043259;
+  border: 0;
+  background-color: #ffffff;
+  color: #043259;
   padding: 15px;
   width: 200%;
   border-radius: 30px;

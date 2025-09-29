@@ -39,6 +39,7 @@ body{
 }
 
 .btn-adicionar{
+    color: #043259;
   border: #043259;
   padding: 15px;
   width: 180%;
@@ -47,6 +48,7 @@ body{
 }
 
 .btn-enviar{
+  color: #043259;
   border: #043259;
   padding: 15px;
   width: 180%;
