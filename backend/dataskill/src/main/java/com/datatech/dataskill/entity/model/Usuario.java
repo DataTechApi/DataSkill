@@ -3,6 +3,7 @@ package com.datatech.dataskill.entity.model;
 import com.datatech.dataskill.entity.enums.Cargo;
 import com.datatech.dataskill.entity.enums.HardSkill;
 import com.datatech.dataskill.entity.enums.SoftSkill;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +17,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"email"}))
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +25,7 @@ public class Usuario {
 
     private String nome;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
     private String senha;

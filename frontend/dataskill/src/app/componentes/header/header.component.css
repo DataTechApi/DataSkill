@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #043259;
+  width: 100%;
+  color: white;
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  align-items: center;
+  padding: 10px 25px;
+  gap: 10px;
+}
+
+

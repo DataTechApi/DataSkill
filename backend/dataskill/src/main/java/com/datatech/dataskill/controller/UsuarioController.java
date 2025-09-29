@@ -6,18 +6,16 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
-@Tag(name = "usuariocontroller")
+@Tag(name = "usuario")
 public class UsuarioController {
     private final UsuarioService usuarioService;
 
@@ -27,7 +25,7 @@ public class UsuarioController {
 
     @PostMapping
     @Operation(summary = "Cria usuário para logar no sistema",
-                description = "Cria o usuário somente com os dados necessários par a login o sistema")
+                description = "Cria o usuário somente com os dados necessários para o login do sistema")
     @ApiResponses(value = {@ApiResponse(responseCode = "201"),@ApiResponse(responseCode = "400")})
     public ResponseEntity cadastrarUsuario(@RequestBody Usuario request){
         Usuario usuario = new Usuario();
@@ -38,8 +36,27 @@ public class UsuarioController {
         usuario.setSoft(request.getSoft());
         usuario.setHard(request.getHard());
 
-        usuarioService.cadastrarUsuario(usuario);
-        return ResponseEntity.ok().build();
+       URI uri = URI.create("/usuario/"+usuario.getEmail());
 
+        usuarioService.cadastrarUsuario(usuario);
+        return ResponseEntity.created(uri).build();
     }
+    @GetMapping("/{email}")
+    @Operation(summary = "Busca usuário por email", description = "Busca um usuário pelo email cadastrado")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
+    public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email){
+        Optional<Usuario> usuario = usuarioService.buscarPorEmail(email);
+        if(usuario.isPresent())
+            return ResponseEntity.ok(usuario.get());
+        else
+            return ResponseEntity.notFound().build();
+    }
+    @GetMapping
+    @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usuários no banco de dados")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200")})
+    public ResponseEntity<List<Usuario>> listarUsuarios(){
+        List<Usuario> usuarios = usuarioService.listarUsuarios();
+        return ResponseEntity.ok(usuarios);
+    }
+
 }
