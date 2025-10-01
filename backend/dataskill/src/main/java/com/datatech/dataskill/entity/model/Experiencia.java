@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @Builder
@@ -21,10 +23,10 @@ public class Experiencia {
 
     @Column(name="nome_empresa")
     private String nomeEmpresa;
-    @Column(name="cargo")
+   private String descricao;
     private String cargo;
     @Column(name="data_inicio")
-    private String dataInicio;
+    private LocalDate dataInicio;
     @Column(name="data_fim")
-    private String dataFim;  
+    private LocalDate dataFim;
 }

@@ -19,12 +19,10 @@ public class LoginService {
     public Boolean realizarLogin(LoginDTORequest loginRequest){
         Optional<Usuario> login = usuarioRepository.findByEmail(loginRequest.email());
         if (login.isPresent()) {
-            if (login.get().getSenha().equals(loginRequest.senha()) &&
-                    login.get().getEmail().equals(loginRequest.email())) {
+            if (login.get().getSenha().equals(loginRequest.senha())){
                 return true;
             }
         }
-
         return false;
     }
 }

@@ -24,7 +24,7 @@ public class LoginController {
         this.loginService = loginService;
     }
     @PostMapping
-    @Operation(summary = "Realiza p login com email e senha do usuário",
+    @Operation(summary = "Realiza o login com email e senha do usuário",
     description = "Realiza login passando o email e senha do usuário e retornando o status do login")
     @ApiResponses(value = {@ApiResponse(responseCode = "200"),  @ApiResponse(responseCode = "401")})
     public ResponseEntity realizarLogin(@RequestBody LoginDTORequest loginRequest){
