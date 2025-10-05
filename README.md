@@ -62,3 +62,44 @@ A equipe **DataTech** é composta por estudantes do 3º Semestre do curso banco 
 | 6  | Alta       | Como usuário, quero cadastrar minhas competências para ficar à mostra a todos os supervisores/diretores que tiverem interesse. | 1      | Em andamento |
 | 7  | Média       | Como usuário, eu quero visualizar os perfis dos colegas em uma interface intuitiva, com cards organizados por competências, setor e nível de proficiência, para que eu possa navegar e identificar talentos internos. | 1      | Em andamento |
 | 8  | Média       | Como usuário, quero que o produto seja entregue com todas a documentações e manuais de usuário, para que haja uma melhor organização e orientação quando formos usar o sistema | 3  | Pendente|
+
+# 🧩 Definition of Ready (DoR) e ✅ Definition of Done (DoD)
+
+---
+
+## 📌 **Definition of Ready (DoR)**
+Uma *User Story* está **pronta para desenvolvimento** quando:
+
+- ✅ O objetivo está claramente descrito e compreendido por todos.  
+- ✅ Os critérios de aceitação estão definidos e validados pelo Product Owner.  
+- ✅ As dependências estão identificadas e resolvidas (APIs, banco, telas anteriores).   
+- ✅ As tarefas técnicas estão quebradas e estimadas.  
+- ✅ Há dados de teste ou ambiente pronto para validação.
+
+---
+
+## 🚀 **Definition of Done (DoD)**
+Uma *User Story* é considerada **concluída** quando:
+
+- 🧠 Todo o código foi desenvolvido conforme os critérios de aceitação.  
+- 🔍 Foram realizados **testes** com sucesso.  
+- 📘 A documentação técnica e/ou manual de usuário foi atualizada.  
+- 🔒 Os dados estão tratados e armazenados de forma segura.  
+- 💬 O Product Owner revisou e aprovou a entrega.  
+- 🚀 A funcionalidade está pronta para ser liberada em produção.
+
+---
+
+## 📋 **Aplicação do DoR e DoD nas User Stories**
+
+| # | User Story (Resumo) | 🧩 DoR Específico | ✅ DoD Específico |
+|:-:|----------------------|------------------|------------------|
+| **1** | Visualizar perfil dos colaboradores | Mockups prontos e estrutura do banco definida | Perfis listados e filtráveis por setor; PO validou usabilidade |
+| **2** | Dashboard de competências | Métricas e dados a exibir definidos | Dashboard funcional mostrando relação de competências por área |
+| **3** | Autoavaliação do usuário | Campos da autoavaliação definidos | Usuário consegue avaliar e salvar competências; dados persistem corretamente |
+| **4** | Filtrar competências | Critérios de filtro definidos (por cargo, área, skill) | Filtros funcionam e retornam resultados esperados |
+| **5** | Alocar colaborador em skill desejada | Lógica de alocação e permissões definidas | Colaborador alocado corretamente; gestor visualiza atualização |
+| **6** | Cadastrar competências | Campos de cadastro definidos e validados | Competências salvas e visíveis aos gestores |
+| **7** | Visualizar colegas com cards | Estrutura dos cards e layout definidos | Cards exibem colegas, competências e setores corretamente |
+| **8** | Entrega com documentação | Itens de documentação definidos e revisados | Sistema entregue com manual e instruções completas |
+
