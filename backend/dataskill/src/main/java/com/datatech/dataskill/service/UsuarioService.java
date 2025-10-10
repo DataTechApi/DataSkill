@@ -18,6 +18,7 @@ public class UsuarioService {
 
     public void cadastrarUsuario(Usuario usuario){
         usuarioRepository.save(usuario);
+
     }
     public Optional<Usuario> buscarPorEmail(String email) {
         return Optional.ofNullable(usuarioRepository.findByEmail(email).orElse(null));

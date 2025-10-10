@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +21,11 @@ import java.util.Optional;
 @Tag(name = "usuario")
 public class UsuarioController {
     private final UsuarioService usuarioService;
+    private final ModelMapper modelMapper;
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService, ModelMapper modelMapper) {
         this.usuarioService = usuarioService;
+        this.modelMapper = modelMapper;
     }
 
     @PostMapping
@@ -30,16 +33,16 @@ public class UsuarioController {
                 description = "Cria o usuário somente com os dados necessários para o login do sistema")
     @ApiResponses(value = {@ApiResponse(responseCode = "201"),@ApiResponse(responseCode = "400")})
     public ResponseEntity cadastrarUsuario(@RequestBody UsuarioDTORequest request){
-        Usuario usuario = new Usuario();
-        usuario.setNome(request.nome());
-        usuario.setEmail(request.email());
-        usuario.setSenha(request.senha());
-        usuario.setCargo(Cargo.valueOf(request.cargo()));
-
-
-       URI uri = URI.create(STR."/usuario/\{usuario.getEmail()}");
-
-        usuarioService.cadastrarUsuario(usuario);
+        //Usuario usuario = new Usuario();
+        Usuario usuario = modelMapper.map(request, Usuario.class);
+         usuarioService.cadastrarUsuario(usuario);
+        System.out.println(usuario);
+//        Usuario usuario = new Usuario();
+//        usuario.setNome(request.nome());
+//        usuario.setEmail(request.email());
+//        usuario.setSenha(request.senha());
+//        usuario.setCargo(Cargo.valueOf(request.cargo()));
+        URI uri = URI.create(STR."/usuario/\{usuario.getEmail()}");
         return ResponseEntity.created(uri).build();
     }
     @GetMapping("/{email}")

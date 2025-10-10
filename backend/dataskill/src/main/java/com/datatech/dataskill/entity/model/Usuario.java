@@ -24,15 +24,15 @@ public class Usuario {
 
     private String nome;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String email;
 
     private String senha;
     @Enumerated(EnumType.STRING)
     private Cargo cargo;
-    @Enumerated(EnumType.STRING)
+
     private List<Soft> soft;
-    @Enumerated(EnumType.STRING)
+
     private List<Hard> hard;
 
 }
