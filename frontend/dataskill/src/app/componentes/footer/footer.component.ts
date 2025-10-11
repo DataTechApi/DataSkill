@@ -11,5 +11,5 @@ import { Component } from '@angular/core';
 export class FooterComponent {
 
   logo_fatec:string = "assets/logo_fatec.png";
-  logo_altave:string = "assets/logo_altave.png";
+  logo_altave:string = "assets/data_tech.png";
 }

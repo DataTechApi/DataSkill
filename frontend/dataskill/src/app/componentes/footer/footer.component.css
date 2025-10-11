@@ -1,5 +1,5 @@
 footer{
-  background-color: rgb(44, 44, 44);
+  background-color: rgb(31, 31, 31);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -13,5 +13,10 @@ footer{
 
 footer img{
   max-width: 90%;
+
+}
+
+.logo_data{
+  margin-left: -1%;
 }
 
