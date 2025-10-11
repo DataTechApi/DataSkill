@@ -29,4 +29,7 @@ public class Experiencia {
     private LocalDate dataInicio;
     @Column(name="data_fim")
     private LocalDate dataFim;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 }

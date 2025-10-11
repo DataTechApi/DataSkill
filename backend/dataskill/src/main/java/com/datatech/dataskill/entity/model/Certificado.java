@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name= "certificadp")
 public class Certificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,4 +28,7 @@ public class Certificado {
 
     @Column(nullable = false)
     private LocalDateTime dataFim;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 }

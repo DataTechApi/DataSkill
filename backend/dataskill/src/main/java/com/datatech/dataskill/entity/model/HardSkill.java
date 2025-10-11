@@ -18,4 +18,7 @@ public class HardSkill {
     private Long id;
     @Enumerated(EnumType.STRING)
     private Hard nome;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 }
