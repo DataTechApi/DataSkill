@@ -1,7 +1,6 @@
 package com.datatech.dataskill.controller;
 
 import com.datatech.dataskill.entity.dto.request.UsuarioDTORequest;
-import com.datatech.dataskill.entity.enums.Cargo;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -33,15 +31,8 @@ public class UsuarioController {
                 description = "Cria o usuário somente com os dados necessários para o login do sistema")
     @ApiResponses(value = {@ApiResponse(responseCode = "201"),@ApiResponse(responseCode = "400")})
     public ResponseEntity cadastrarUsuario(@RequestBody UsuarioDTORequest request){
-        //Usuario usuario = new Usuario();
         Usuario usuario = modelMapper.map(request, Usuario.class);
          usuarioService.cadastrarUsuario(usuario);
-        System.out.println(usuario);
-//        Usuario usuario = new Usuario();
-//        usuario.setNome(request.nome());
-//        usuario.setEmail(request.email());
-//        usuario.setSenha(request.senha());
-//        usuario.setCargo(Cargo.valueOf(request.cargo()));
         URI uri = URI.create(STR."/usuario/\{usuario.getEmail()}");
         return ResponseEntity.created(uri).build();
     }
@@ -58,8 +49,8 @@ public class UsuarioController {
     @GetMapping
     @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usuários no banco de dados")
     @ApiResponses(value = {@ApiResponse(responseCode = "200")})
-    public ResponseEntity<List<Usuario>> listarUsuarios(){
-        List<Usuario> usuarios = usuarioService.listarUsuarios();
+    public ResponseEntity<Iterable<Usuario>> listarUsuarios(){
+        Iterable<Usuario> usuarios = usuarioService.listarUsuarios();
         return ResponseEntity.ok(usuarios);
     }
 

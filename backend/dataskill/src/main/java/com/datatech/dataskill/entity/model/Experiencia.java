@@ -1,18 +1,17 @@
 package com.datatech.dataskill.entity.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,7 +28,9 @@ public class Experiencia {
     private LocalDate dataInicio;
     @Column(name="data_fim")
     private LocalDate dataFim;
+
     @ManyToOne
     @JoinColumn(name = "id_usuario")
+    @JsonIgnore
     private Usuario usuario;
 }

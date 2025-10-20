@@ -4,7 +4,6 @@ import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,7 +22,11 @@ public class UsuarioService {
     public Optional<Usuario> buscarPorEmail(String email) {
         return Optional.ofNullable(usuarioRepository.findByEmail(email).orElse(null));
     }
-    public List<Usuario> listarUsuarios(){
+    public Iterable<Usuario> listarUsuarios(){
         return usuarioRepository.findAll();
+    }
+
+    public Optional<Usuario> buscarPorId(Long id){
+        return usuarioRepository.findById(id);
     }
 }

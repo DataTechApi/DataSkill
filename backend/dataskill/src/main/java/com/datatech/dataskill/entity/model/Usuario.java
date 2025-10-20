@@ -4,15 +4,16 @@ import com.datatech.dataskill.entity.enums.Cargo;
 import com.datatech.dataskill.entity.enums.Hard;
 import com.datatech.dataskill.entity.enums.Soft;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.engine.internal.Cascade;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,16 +31,22 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "departamento_id")
     private Departamento departamento;
-    @OneToMany(mappedBy = ("usuario"))
+
+    @OneToMany(mappedBy = ("usuario"), fetch = FetchType.EAGER)
     private List<SoftSkill> softSkills;
-    @OneToMany(mappedBy = ("usuario"))
+
+    @OneToMany(mappedBy = ("usuario"), fetch = FetchType.EAGER)
     private List<HardSkill> hardSkills;
-    @OneToMany(mappedBy = ("usuario"))
+
+    @OneToMany(mappedBy = ("usuario"), fetch = FetchType.EAGER)
     private List<Avaliacao> avaliacoes;
-    @OneToMany(mappedBy = ("usuario"))
+
+    @OneToMany(mappedBy = ("usuario"), cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Experiencia> experiencias;
-    @OneToMany(mappedBy = ("usuario"))
+
+    @OneToMany(mappedBy = ("usuario"), cascade = CascadeType.ALL)
     private List<Certificado> certificados;
+
     @OneToOne
     @JoinColumn(name = "auto_avaliacao_id")
     private AutoAvaliacao autoAvaliacao;
