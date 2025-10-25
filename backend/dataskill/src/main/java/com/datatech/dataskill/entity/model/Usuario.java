@@ -1,6 +1,7 @@
 package com.datatech.dataskill.entity.model;
 
 import com.datatech.dataskill.entity.enums.Cargo;
+import com.datatech.dataskill.entity.enums.Departamento;
 import com.datatech.dataskill.entity.enums.Hard;
 import com.datatech.dataskill.entity.enums.Soft;
 import jakarta.persistence.*;
@@ -26,25 +27,26 @@ public class Usuario {
     @Column(unique = true)
     private String email;
     private String senha;
+
     @Enumerated(EnumType.STRING)
     private Cargo cargo;
-    @ManyToOne
-    @JoinColumn(name = "departamento_id")
-    private Departamento departamento;
 
-    @OneToMany(mappedBy = ("usuario"), fetch = FetchType.EAGER)
+   @Enumerated(EnumType.STRING)
+   private Departamento departamento;
+
+    @OneToMany(mappedBy = ("usuario"))
     private List<SoftSkill> softSkills;
 
-    @OneToMany(mappedBy = ("usuario"), fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = ("usuario"))
     private List<HardSkill> hardSkills;
 
-    @OneToMany(mappedBy = ("usuario"), fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = ("usuario"))
     private List<Avaliacao> avaliacoes;
 
-    @OneToMany(mappedBy = ("usuario"), cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = ("usuario"))
     private List<Experiencia> experiencias;
 
-    @OneToMany(mappedBy = ("usuario"), cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = ("usuario"))
     private List<Certificado> certificados;
 
     @OneToOne

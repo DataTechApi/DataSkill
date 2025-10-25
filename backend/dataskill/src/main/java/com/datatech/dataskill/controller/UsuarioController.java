@@ -1,6 +1,7 @@
 package com.datatech.dataskill.controller;
 
 import com.datatech.dataskill.entity.dto.request.UsuarioDTORequest;
+import com.datatech.dataskill.entity.dto.response.UsuarioDTOResponse;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -8,10 +9,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -49,9 +52,10 @@ public class UsuarioController {
     @GetMapping
     @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usuários no banco de dados")
     @ApiResponses(value = {@ApiResponse(responseCode = "200")})
-    public ResponseEntity<Iterable<Usuario>> listarUsuarios(){
+    public ResponseEntity<Iterable<UsuarioDTOResponse>> listarUsuarios(){
         Iterable<Usuario> usuarios = usuarioService.listarUsuarios();
-        return ResponseEntity.ok(usuarios);
+        Iterable<UsuarioDTOResponse> usuarioDTO = modelMapper.map(usuarios, new TypeToken<List<UsuarioDTOResponse>>(){}.getType());
+        return ResponseEntity.ok(usuarioDTO);
     }
 
 }

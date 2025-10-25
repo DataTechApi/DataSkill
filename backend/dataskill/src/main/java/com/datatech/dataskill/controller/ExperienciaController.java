@@ -37,12 +37,12 @@ public class ExperienciaController {
         this.modelMapper = modelMapper;
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/{userId}")
     @Operation(summary = "Cria experiência do usuário",
                 description = "Cria a experiência do usuário com os dados necessários")
     @ApiResponses(value = {@ApiResponse(responseCode = "201"),@ApiResponse(responseCode = "400")})
-    public ResponseEntity cadastrarExperiencia(@PathVariable Long id,@RequestBody ExperienciaDTORequest request){
-        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+    public ResponseEntity cadastrarExperiencia(@PathVariable Long userId,@RequestBody ExperienciaDTORequest request){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(userId);
         Experiencia experiencia = modelMapper.map(request,Experiencia.class);
         experiencia.setUsuario(usuario.get());
         experienciaService.cadastrarExperiencia(experiencia);
