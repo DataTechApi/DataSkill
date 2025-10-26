@@ -15,5 +15,6 @@ public class Usuario {
     private String email;   
     private String cargo;
     private String departamento;
+    private String telefone;
 
 }

@@ -15,9 +15,9 @@
 <body>
     <div th:insert="fragments/header :: cabecalho-principal"></div>
     
-    <div class="container mt-5">
-    <div class="card mx-auto" style="max-width:720px;">
-        <div class="card-header">
+    <main class="container mt-5">
+    <div class="col-md-8 mx-auto">
+            <div class="card-header bg-dark text-white">
             <h4 class="mb-0" >Cadastro de Colaboradores</h4>
         </div>
         <div class="card-body">
@@ -31,6 +31,12 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="email" required>
+                    <div class="text-danger mt-1" ></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Telefone</label>
+                    <input type="terlefome" id="telefone" name="telefone" class="form-control" placeholder="(xx) xxxxx-xxxx)" required>
                     <div class="text-danger mt-1" ></div>
                 </div>
 
@@ -55,9 +61,14 @@
                     <button type="submit" class="btn btn-primary">Salvar Colaborador</button>
                 </div>
             </form>
+            
         </div>
+        </div>
+     </main>  
+</body>
+ 
     <footer id="footer">
         <div th:insert="fragments/footer :: rodape-principal"></div>
     </footer>
-</body>
+ 
 </html>

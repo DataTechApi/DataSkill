@@ -27,6 +27,7 @@ public class Usuario {
     @Column(unique = true)
     private String email;
     private String senha;
+    private String telefone;
 
     @Enumerated(EnumType.STRING)
     private Cargo cargo;

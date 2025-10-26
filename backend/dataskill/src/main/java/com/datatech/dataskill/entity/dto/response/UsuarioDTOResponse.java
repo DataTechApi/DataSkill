@@ -16,4 +16,5 @@ public class  UsuarioDTOResponse{
     private String email;
     private String cargo;
     private String departamento;
+    private String telefone;
 }

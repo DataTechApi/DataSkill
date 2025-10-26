@@ -17,14 +17,15 @@
       <div  th:insert="/fragments/header :: cabecalho-principal"></div>
     </header>
     
-    <table class="table table-striped">
+    <table class=" table table-dark table-striped" style="margin-bottom: 55px;">
       <thead>
         <tr>
-          <th>ID</th>
+          
           <th>Nome</th>
           <th>Email</th>
           <th>Cargo</th>
           <th>Departamento</th>
+          <th>Telefone</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -33,11 +34,12 @@
           <td colspan="6">Nenhum usuário cadastrado.</td>
         </tr>
         <tr data-th-each="user : ${usuarios}">
-          <td th:text="${user.id}">Id do Usuário</td>
+          
           <td th:text="${user.nome}">Nome do Usuário</td>
           <td th:text="${user.email}">Email do Usuário</td>
           <td th:text="${user.cargo}">Cargo</td>
           <td th:text="${user.departamento}">Departamento</td>
+          <td th:text="${user.telefone}">Telefone</td>
           
           <td>
             <a th:href="@{/editar/{id}(id=${user.id})}" class="btn btn-primary"

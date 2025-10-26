@@ -4,6 +4,7 @@ public record UsuarioDTORequest(
         String nome,
         String email,
         String departamento,
+        String telefone,
         String cargo
 
 ) {}
