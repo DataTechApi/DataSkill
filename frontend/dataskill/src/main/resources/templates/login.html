@@ -14,18 +14,42 @@
 
 </head>
 <body>
-            <h1 class="h1-dataskill">DATASKILL</h1>
-            <img th:src="@{/imagens/dataskill.png}" width="100" class="logo-dataskill">
+    
 
-    <div class="bloco2-login">
-        <h1>Login</h1>
-            <form  class="forms-cadastrar" action="/logar" method="post">
-                <input  type="email" name="email" class="input-cad" placeholder="Email">
-                <input  type="password" name="senha" class="input-cad" placeholder="Senha">
-                <div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger" role="alert"></div>                
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
+    <div class="container">
+        <div class="row justify-content-center min-vh-100 align-items-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-5">
+                <div class="card bg-dark text-light shadow-sm rounded-4 p-4 border-0">
+                    <img th:src="@{/imagens/dataskill.png}" alt="DataSkill" class="mx-auto d-block mb-3" style="width:72px;">
+                    <h2 class="h4 text-center fw-bold mb-1">Entrar na DataSkill</h2>
+                    <p class="text-center text-muted mb-3">Acesse sua conta para continuar</p>
 
+                    <style>
+                      .card .form-control::placeholder { color: #ffffff !important; opacity: 1; }
+                    </style>
+
+                    <form action="/logar" method="post" novalidate>
+                        <div class="mb-3">
+                            <label for="email" class="form-label visually-hidden">Email</label>
+                            <input id="email" type="email" name="email" class="form-control form-control-lg bg-transparent text-light border-secondary rounded-3" placeholder="Email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="senha" class="form-label visually-hidden">Senha</label>
+                            <input id="senha" type="password" name="senha" class="form-control form-control-lg bg-transparent text-light border-secondary rounded-3" placeholder="Senha" required>
+                        </div>
+
+                        <div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger py-2" role="alert"></div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mb-2">Login</button>
+
+                        <style>
+                            .card .form-control::placeholder { color: #d3d3d3 !important; opacity: 1; }
+                        </style>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
