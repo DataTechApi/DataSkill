@@ -1,39 +1,56 @@
 package com.datatech.dataskill.entity.model;
 
 import com.datatech.dataskill.entity.enums.Cargo;
-import com.datatech.dataskill.entity.enums.HardSkill;
-import com.datatech.dataskill.entity.enums.SoftSkill;
-import jakarta.annotation.Nullable;
+import com.datatech.dataskill.entity.enums.Departamento;
+import com.datatech.dataskill.entity.enums.Hard;
+import com.datatech.dataskill.entity.enums.Soft;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.engine.internal.Cascade;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"email"}))
+@Table(name = "usuario", uniqueConstraints = @UniqueConstraint(columnNames = {"email"}))
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String email;
-
     private String senha;
+    private String telefone;
+
     @Enumerated(EnumType.STRING)
     private Cargo cargo;
-    @Enumerated(EnumType.STRING)
-    private List<SoftSkill> soft;
-    @Enumerated(EnumType.STRING)
-    private List<HardSkill> hard;
 
-}
+   @Enumerated(EnumType.STRING)
+   private Departamento departamento;
+
+    @OneToMany(mappedBy = ("usuario"))
+    private List<SoftSkill> softSkills;
+
+    @OneToMany(mappedBy = ("usuario"))
+    private List<HardSkill> hardSkills;
+
+    @OneToMany(mappedBy = ("usuario"))
+    private List<Avaliacao> avaliacoes;
+
+    @OneToMany(mappedBy = ("usuario"))
+    private List<Experiencia> experiencias;
+
+    @OneToMany(mappedBy = ("usuario"))
+    private List<Certificado> certificados;
+
+    @OneToOne
+    @JoinColumn(name = "auto_avaliacao_id")
+    private AutoAvaliacao autoAvaliacao;
+    }

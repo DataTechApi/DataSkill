@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATASKILL</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link th:href="@{/footer/styles.css}" rel="stylesheet" />
+</head>
+<body>
+    <header id="header">
+      <div  th:insert="/fragments/header-colaborador :: cabecalho-colaborador"></div>
+    </header>
+  <main class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            <h3 class="mb-0">Perfil do Colaborador</h3>
+          </div>
+          
+                <div style="font-size:1rem;">
+                  <div class="col-md-8">
+                    <h5 class="mb-2">Nome do Colaborador</h5>
+                    <input type="text" class="form-control mb-2" id="nome">
+                    <h5 class="mb-2">Email</h5>
+                    <input type="text" class="form-control mb-2" id="email">
+                    <h5 class="mb-2">Cargo</h5>
+                    <input type="text" class="form-control mb-2" id="telefone">
+                    <h5 class="mb-2">Telefone</h5>
+                    <input type="text" class="form-control mb-2" id="cargo">
+                    <h5 class="mb-2">Cargo</h5>
+                    <input type="text" class="form-control mb-2" id="departamento">
+                    <h5 class="mb-2">Departamento</h5>
+                  
+                  </div>
+                 
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+
+   
+    
+</body>
+<footer id="footer">
+    <div th:insert="fragments/footer :: rodape-principal"></div>
+  </footer>
+
+</html>

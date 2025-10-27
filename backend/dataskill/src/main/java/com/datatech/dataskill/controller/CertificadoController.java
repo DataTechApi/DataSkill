@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/certificado")
-@Tag(name = "certificado", description = "API de certificados")
+@Tag(name = "certificado")
 public class CertificadoController {
 
     private final CertificadoService certificadoService;
@@ -24,7 +24,7 @@ public class CertificadoController {
 
     // Criar certificado
     @PostMapping
-    @Operation(summary = "Cadastra um novo certificado")
+    @Operation(summary = "Cadastra um novo certificado", description = "Cadastra um novo certificado no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Certificado criado com sucesso"),
             @ApiResponse(responseCode = "400", description = "Erro ao criar certificado")
@@ -36,28 +36,28 @@ public class CertificadoController {
 
     // Listar
     @GetMapping
-    @Operation(summary = "Lista todos os certificados")
+    @Operation(summary = "Lista todos os certificados",description = "Lista todos os certificados cadastrados no banco de dados")
     public ResponseEntity<List<Certificado>> listar() {
         return ResponseEntity.ok(certificadoService.listarCertificados());
     }
 
     // Buscar  ID
     @GetMapping("/{id}")
-    @Operation(summary = "Busca um certificado pelo ID")
+    @Operation(summary = "Busca um certificado pelo ID",description = "Busca um certificado pelo ID")
     public ResponseEntity<Certificado> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(certificadoService.buscarPorId(id));
     }
 
     //Atualizar
     @PutMapping("/{id}")
-    @Operation(summary = "Atualiza um certificado existente")
+    @Operation(summary = "Atualiza um certificado existente",description = "Atualiza um certificado existente no banco de dados")
     public ResponseEntity<Certificado> atualizar(@PathVariable Long id, @RequestBody Certificado request) {
         return ResponseEntity.ok(certificadoService.atualizarCertificado(id, request));
     }
 
     //Deletar
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deleta um certificado pelo ID")
+    @Operation(summary = "Deleta um certificado pelo ID",description = "Deleta um certificado pelo ID")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         certificadoService.deletarCertificado(id);
         return ResponseEntity.noContent().build();
