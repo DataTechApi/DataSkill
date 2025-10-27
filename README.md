@@ -45,8 +45,8 @@ O objetivo é **facilitar o processo de gestão e busca de talentos** dentro da 
 
 | Categoria | Tecnologias |
 |------------|-------------|
-| **Back-end** | Java 17 • Spring Boot • JPA • Maven |
-| **Front-end** | Angular |
+| **Back-end** | Java 21 • Spring Boot • JPA • Maven |
+| **Front-end** | Angular | Thymeleaf |
 | **Banco de Dados** | MySQL |
 | **Documentação de API** | Swagger (OpenAPI) |
 | **Controle de Versão** | Git • GitHub |
@@ -88,14 +88,14 @@ Abaixo está a estrutura real do projeto:
 ## ⚙️ Como Executar o Projeto
 
 ### 🔧 Pré-requisitos
-- Java 17+
+- Java 21+
 - Node.js 18+
 - MySQL 8+
 - Maven instalado
 - Angular CLI
 
 ### 🗃️ Banco de Dados
-1. Crie um banco de dados chamado `dataskill_db`.
+1. Crie um banco de dados chamado `dataskilldb`.
 2. Configure o arquivo `application.properties`:
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/dataskill_db
