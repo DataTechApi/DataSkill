@@ -26,7 +26,7 @@ public class HardSkillController {
     @PostMapping
     public ResponseEntity cadastrarHardSkill(@RequestBody HardSkillDTORequest request){
         HardSkill hardSkill = new HardSkill();
-        hardSkill.setNome(request.nome());
+       // hardSkill.setNome(request.nome());
         hardSkillService.cadastrarHardSkill(hardSkill);
         return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso");
 

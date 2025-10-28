@@ -6,8 +6,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-
-import com.datatech.dataskill.model.Usuario;
+import com.datatech.dataskill.entities.model.Usuario;
 
 @Service
 public class DataskillService {

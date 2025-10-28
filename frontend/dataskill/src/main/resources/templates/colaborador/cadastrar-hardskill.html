@@ -15,6 +15,58 @@
     <header id="header">
       <div  th:insert="/fragments/header-colaborador :: cabecalho-colaborador"></div>
     </header>
+
+    <div class="container mt-5">
+      <div class="row">
+        <!-- Form Section -->
+        <div class="col-md-6 ">
+          <h2 class="card-header bg-dark text-white">Cadastro de Hard Skills</h2>
+          <form th:action="@{/colaborador/cadastrar-hardskill}" method="POST" class="mt-4">
+            <div class="mb-3">
+              <label for="skillName" class="form-label">Nome da Skill</label>
+              <input type="text" class="form-control" id="skillName" name="skillName" required>
+            </div>
+            <div class="mb-3">
+              <label for="skillLevel" class="form-label">Nível</label>
+              <select class="form-select" id="skillLevel" name="skillLevel" required>
+                <option value="">Selecione o nível</option>
+                <option value="Básico">Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-dark btn-lg w-100 mb-2 ">Cadastrar</button>
+          </form>
+        </div>
+
+        <!-- List Section -->
+        <div class="col-md-6">
+          <h2 class="card-header bg-dark text-white">Hard Skills Cadastradas</h2>
+          <div class="table-responsive mt-4">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Skill</th>
+                  <th>Nível</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="skill : ${skills}">
+                  <td th:text="${skill.name}"></td>
+                  <td th:text="${skill.level}"></td>
+                  <td>
+                    <button class="btn btn-sm btn-warning">Editar</button>
+                    <button class="btn btn-sm btn-danger">Excluir</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </body>
 <footer id="footer">
     <div th:insert="fragments/footer :: rodape-principal"></div>

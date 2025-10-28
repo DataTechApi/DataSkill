@@ -15,6 +15,40 @@
     <header id="header">
       <div  th:insert="/fragments/header-colaborador :: cabecalho-colaborador"></div>
     </header>
+    <div class="container mt-5">
+    <div class="row h-100">
+      <!-- Formulário -->
+      <div class="col-md-6 form-section">
+        <h2 class="card-header bg-dark text-white">Cadastro de Experiência</h2>
+        <form id="experienceForm">
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Empresa</label>
+            <input type="text" class="form-control" id="titulo" name="empresa" required />
+          </div>
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Data início</label>
+            <input type="text" class="form-control" id="datainicio" name="datainicio" required />
+            <label for="titulo" class="form-label">Data Término</label>
+            <input type="text" class="form-control" id="datafim" name="datafim" required />
+          </div>
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea class="form-control" id="descricao" name="descricao" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark btn-lg w-100 mb-2">Cadastrar</button>
+        </form>
+      </div>
+
+      <!-- Visualização -->
+      <div class="col-md-6 preview-section">
+        <h2 class="card-header bg-dark text-white">Visualização</h2>
+        <div id="previewContent" class="preview-content">
+          Preencha o formulário para visualizar sua experiência aqui.
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 <footer id="footer">
     <div th:insert="fragments/footer :: rodape-principal"></div>

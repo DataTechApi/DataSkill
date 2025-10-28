@@ -4,10 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.datatech.dataskill.model.LoginDTO;
-import com.datatech.dataskill.model.LoginDTOResponse;
+import com.datatech.dataskill.entities.dtos.request.LoginDTO;
+import com.datatech.dataskill.entities.dtos.response.LoginDTOResponse;
 import com.datatech.dataskill.service.LoginService;
 
 @Controller

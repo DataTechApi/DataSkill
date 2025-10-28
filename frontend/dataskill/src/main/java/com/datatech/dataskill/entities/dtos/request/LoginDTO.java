@@ -1,4 +1,4 @@
-package com.datatech.dataskill.model;
+package com.datatech.dataskill.entities.dtos.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
