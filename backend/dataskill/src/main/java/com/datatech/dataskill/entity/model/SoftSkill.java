@@ -16,7 +16,7 @@ public class SoftSkill {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Soft softSkill;
+    private Soft nome;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;

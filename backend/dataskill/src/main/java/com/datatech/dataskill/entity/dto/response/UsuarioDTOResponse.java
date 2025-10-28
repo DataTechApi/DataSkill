@@ -1,6 +1,7 @@
 package com.datatech.dataskill.entity.dto.response;
 
 
+import com.datatech.dataskill.entity.model.SoftSkill;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,5 +21,6 @@ public class  UsuarioDTOResponse{
     private String cargo;
     private String departamento;
     private String telefone;
-    List<SoftSkillDTOResponse> softSkills;
+    List<SoftSkill> softSills;
+
 }

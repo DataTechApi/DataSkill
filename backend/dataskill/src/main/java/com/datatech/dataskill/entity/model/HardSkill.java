@@ -16,7 +16,7 @@ public class HardSkill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Enumerated(EnumType.STRING)
-    private Hard hardSkill;
+    private Hard nome;
     @Enumerated(EnumType.STRING)
     private Nivel nivel;
     @ManyToOne

@@ -1,5 +1,6 @@
 package com.datatech.dataskill.service;
 
+import com.datatech.dataskill.entity.dto.response.SoftSkillDTOResponse;
 import com.datatech.dataskill.entity.model.SoftSkill;
 import com.datatech.dataskill.repository.SoftSkillRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class SoftSkillService {
     public void cadastrarSoftSkill(SoftSkill softSkill){
         softSkillRepository.save(softSkill);
     }
-    public List<SoftSkill> listarSoftSkills(){
+    public Iterable<SoftSkill> listarSoftSkills(){
         return softSkillRepository.findAll();
     }
 }

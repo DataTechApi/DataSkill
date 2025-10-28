@@ -3,14 +3,20 @@ package com.datatech.dataskill.controller;
 import com.datatech.dataskill.entity.dto.request.HardSkillDTORequest;
 import com.datatech.dataskill.entity.dto.response.HardSkillDTOResponse;
 import com.datatech.dataskill.entity.model.HardSkill;
+import com.datatech.dataskill.entity.model.SoftSkill;
+import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.HardSkillService;
+import com.datatech.dataskill.service.UsuarioService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/hardskill")
@@ -18,22 +24,29 @@ import java.util.List;
 public class HardSkillController {
 
     private final HardSkillService hardSkillService;
+    private final UsuarioService usuarioService;
+    private final ModelMapper modelMapper;
 
-    public HardSkillController(HardSkillService hardSkillService) {
+    public HardSkillController(HardSkillService hardSkillService, UsuarioService usuarioService, ModelMapper modelMapper) {
         this.hardSkillService = hardSkillService;
+        this.usuarioService = usuarioService;
+        this.modelMapper = modelMapper;
     }
 
-    @PostMapping
-    public ResponseEntity cadastrarHardSkill(@RequestBody HardSkillDTORequest request){
-        HardSkill hardSkill = new HardSkill();
-       // hardSkill.setNome(request.nome());
+    @PostMapping("/{userId}")
+    public ResponseEntity cadastrarHardSkill(@PathVariable Long userId, @RequestBody HardSkillDTORequest request){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(userId);
+        HardSkill hardSkill  = modelMapper.map(request,HardSkill.class);
+        hardSkill.setUsuario(usuario.get());
         hardSkillService.cadastrarHardSkill(hardSkill);
         return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso");
 
     }
     @GetMapping
-    public ResponseEntity<List<HardSkill>> listarHardSkills(){
+    public ResponseEntity<List<HardSkillDTOResponse>> listarHardSkills(){
         List<HardSkill> hardSkills = hardSkillService.listarHardSkills();
-        return ResponseEntity.status(HttpStatus.OK).body(hardSkills);
+        List<HardSkillDTOResponse> hardSkillDTO = modelMapper.map(hardSkills,
+                new TypeToken<List<HardSkillDTOResponse>>(){}.getType());
+        return ResponseEntity.status(HttpStatus.OK).body(hardSkillDTO);
     }
 }
