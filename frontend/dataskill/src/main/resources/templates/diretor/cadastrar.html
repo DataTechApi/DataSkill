@@ -63,7 +63,9 @@
   </style>
 </head>
 <body>
-  <div th:insert="fragments/header :: cabecalho-principal"></div>
+  <header id="header">
+    <div th:insert="fragments/header :: cabecalho-principal"></div>
+  </header>
 
   <main class="container mt-5">
     <div class="col-md-8 mx-auto">
@@ -75,7 +77,7 @@
           <div id="successMessage" class="alert alert-success d-none" role="alert">
             Colaborador cadastrado com sucesso!
           </div>
-          <form  action ="/diretor/cadastrar" method="POST" >
+          <form  action="/diretor/cadastrar" method="POST" >
             <div class="mb-3">
               <label for="nome" class="form-label">Nome</label>
               <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome" required>
@@ -88,10 +90,16 @@
               <div class="text-danger" id="erroEmail"></div>
             </div>
 
-            <div class="mb-3">
-              <label for="telefone" class="form-label">Telefone</label>
-              <input type="text" id="telefone" name="telefone" class="form-control" placeholder="(xx) xxxxx-xxxx" required>
-              <div class="text-danger" id="erroTelefone"></div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" id="telefone" name="telefone" class="form-control" placeholder="(xx) xxxxx-xxxx" required>
+                <div class="text-danger" id="erroTelefone"></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite a senha" required>
+              </div>
             </div>
 
             <div class="row">
