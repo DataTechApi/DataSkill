@@ -24,13 +24,14 @@ public class ColaboradorController {
     public String cadastrarExperiencia() {
         return "colaborador/cadastrar-experiencia";
     }       
-    @GetMapping("/colaborador/softskill")
-    public String cadastrarSoftskill() {
-        return "colaborador/cadastrar-softskill";
-    }       
+          
     @GetMapping("/colaborador/autoavaliacao")
     public String cadastrarAutoavaliacao() {
         return "colaborador/cadastrar-autoavaliacao";
+    } 
+    @GetMapping("/colaborador/avaliacao")
+    public String cadastrarAvaliacao() {
+        return "colaborador/cadastrar-avaliacao";
     } 
 
 
