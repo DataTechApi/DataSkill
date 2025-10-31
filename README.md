@@ -195,5 +195,3 @@ A estrutura básica de um commit segue o padrão:
 | `test` | Adição ou ajuste de testes |
 
 <img src = "assets/rodape.png">
-
-<img src = "assets/rodape.png">
