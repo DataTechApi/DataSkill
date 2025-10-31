@@ -89,10 +89,8 @@ Abaixo está a estrutura real do projeto:
 
 ### 🔧 Pré-requisitos
 - Java 21+
-- Node.js 18+
 - MySQL 8+
 - Maven instalado
-- Angular CLI
 
 ### 🗃️ Banco de Dados
 1. Crie um banco de dados chamado `dataskilldb`.
@@ -161,5 +159,42 @@ Uma *User Story* é considerada **concluída** quando:
 |-------------|------------|
 | `main` | Contém o código **estável** e **pronto para produção**. Nenhum commit direto é feito nela — apenas merges revisados. |
 | `sprint1`, `sprint2`, `sprint3` | Cada branch representa uma **entrega de sprint**, com features específicas desenvolvidas nesse ciclo. |
+| **Pull Request** | Utilizado para **unir branches** (ex: `sprint2` → `main`), garantindo **revisão de código** e **controle de versão seguro** antes do merge. |
+
+## 🧩 Padrão de Commits
+
+Adotamos o padrão **[Conventional Commits]** para manter um histórico **organizado**, **padronizado** e **de fácil leitura**.  
+Esse padrão define prefixos que descrevem o tipo de alteração realizada no projeto.  
+
+### Exemplos de commits válidos:
+- `feat: criação da tela de login`
+- `fix: correção no endpoint de autenticação`
+- `docs: atualização do README`
+- `refactor: melhoria na estrutura do componente`
+
+### Estrutura do Commit
+
+A estrutura básica de um commit segue o padrão:
+
+<tipo> (escopo opcional): <descrição breve>
+
+### Exemplos de estruturas:
+
+- `feat(login): adicionar validação de credenciais`
+- `fix(api): corrigir erro de resposta no endpoint de usuários`
+- `docs(readme): atualizar seção de instalação`
+
+### Tipos mais usados:
+| Tipo | Descrição |
+|------|------------|
+| `feat` | Nova funcionalidade |
+| `fix` | Correção de bug |
+| `docs` | Alterações em documentação |
+| `style` | Mudanças visuais ou de formatação (sem alterar comportamento) |
+| `refactor` | Refatoração de código sem alterar funcionalidade |
+| `test` | Adição ou ajuste de testes |
+
+
+
 
 <img src = "assets/rodape.png">
