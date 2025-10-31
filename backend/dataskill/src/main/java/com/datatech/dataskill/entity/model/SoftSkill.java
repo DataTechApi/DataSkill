@@ -1,5 +1,7 @@
 package com.datatech.dataskill.entity.model;
 
+import com.datatech.dataskill.entity.enums.Soft;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,8 +15,11 @@ public class SoftSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private com.datatech.dataskill.entity.enums.Soft nome;
+
+    @Enumerated(EnumType.STRING)
+    private Soft nome;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
+    @JsonIgnore
     private Usuario usuario;
 }

@@ -1,6 +1,8 @@
 package com.datatech.dataskill.entity.model;
 
 import com.datatech.dataskill.entity.enums.Hard;
+import com.datatech.dataskill.entity.enums.Nivel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,7 +18,10 @@ public class HardSkill {
     private Long id;
     @Enumerated(EnumType.STRING)
     private Hard nome;
+    @Enumerated(EnumType.STRING)
+    private Nivel nivel;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
+    @JsonIgnore
     private Usuario usuario;
 }

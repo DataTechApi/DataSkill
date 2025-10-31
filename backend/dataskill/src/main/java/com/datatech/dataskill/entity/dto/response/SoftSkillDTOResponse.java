@@ -1,6 +1,6 @@
 package com.datatech.dataskill.entity.dto.response;
 
-
+import com.datatech.dataskill.entity.model.SoftSkill;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HardSkillDTOResponse{
-    private Long id;
-    private String nome;
-    private String nivel;
+public class SoftSkillDTOResponse{
+        private Long id;
+        private String nome;
 }

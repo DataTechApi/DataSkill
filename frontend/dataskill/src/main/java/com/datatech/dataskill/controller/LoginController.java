@@ -4,15 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.datatech.dataskill.model.LoginDTO;
-import com.datatech.dataskill.model.LoginDTOResponse;
+import com.datatech.dataskill.entities.dtos.request.LoginDTO;
+import com.datatech.dataskill.entities.dtos.response.LoginDTOResponse;
+import com.datatech.dataskill.entities.model.Usuario;
 import com.datatech.dataskill.service.LoginService;
 
 @Controller
 public class LoginController {
 
+    public static Long USUARIO_LOGADO;;
     private final LoginService loginService;
      
 
@@ -35,11 +36,16 @@ public class LoginController {
         try {
             LoginDTOResponse response = loginService.logar(loginDTO);
             if (response.getCargo().equals("SUPERVISOR")) {
+                USUARIO_LOGADO=response.getId();
+               
                 return "redirect:/diretor/listar";
+                
             } else if (response.getCargo().equals("DIRETOR")) {
+                USUARIO_LOGADO=response.getId();
                 return "redirect:/diretor/listar";
             }
             else{
+                USUARIO_LOGADO=response.getId();
                 return "redirect:/colaborador/perfil";
             }
         } catch (Exception e) {

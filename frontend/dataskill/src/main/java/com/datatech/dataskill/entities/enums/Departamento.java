@@ -1,4 +1,4 @@
-package com.datatech.dataskill.entity.enums;
+package com.datatech.dataskill.entities.enums;
 
 public enum Departamento {
     RH,

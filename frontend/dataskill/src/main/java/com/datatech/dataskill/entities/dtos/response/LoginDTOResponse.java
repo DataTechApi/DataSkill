@@ -1,20 +1,18 @@
-package com.datatech.dataskill.model;
-
-
+package com.datatech.dataskill.entities.dtos.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+@Getter
+@Setter
+public class LoginDTOResponse {
     private Long id;
-    private String nome;
-    private String email;   
+    private String email;
     private String cargo;
     private String departamento;
-    private String telefone;
 
 }

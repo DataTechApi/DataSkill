@@ -3,8 +3,8 @@ package com.datatech.dataskill.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-import com.datatech.dataskill.model.LoginDTO;
-import com.datatech.dataskill.model.LoginDTOResponse;
+import com.datatech.dataskill.entities.dtos.request.LoginDTO;
+import com.datatech.dataskill.entities.dtos.response.LoginDTOResponse;
 
 @Service
 public class LoginService {
