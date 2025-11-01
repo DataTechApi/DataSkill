@@ -80,7 +80,7 @@ Abaixo está a estrutura real do projeto:
 | Sprint | Período | Principais Entregas | Status |
 |---------|----------|---------------------|---------|
 | **Sprint 1** | 08/09 a 28/09 | Estrutura inicial do projeto, setup de ambiente, CRUD de colaboradores, início do front-end | ✅ Concluída |
-| **Sprint 2** | 06/10 a 26/10 | Dashboard de competências, filtros e autoavaliação | 🔄 Em andamento |
+| **Sprint 2** | 06/10 a 26/10 | Dashboard de competências, filtros e autoavaliação | ✅ Concluída |
 | **Sprint 3** | 03/11 a 23/11 | Ajustes finais, documentação completa e deploy | ⏳ Pendente |
 
 ---
@@ -176,13 +176,13 @@ Esse padrão define prefixos que descrevem o tipo de alteração realizada no pr
 
 A estrutura básica de um commit segue o padrão:
 
-<tipo> (escopo opcional): <descrição breve>
+- :emoji: <tipo>: #numero_tarefa (descrição breve)
 
 ### Exemplos de estruturas:
 
-- `feat(login): adicionar validação de credenciais`
-- `fix(api): corrigir erro de resposta no endpoint de usuários`
-- `docs(readme): atualizar seção de instalação`
+- `:sparkles: feat: #01 Página de login`
+- `:bug: fix: #02 Loop infinito na linha 50`
+- `:books: #03 docs: Atualização do README`
 
 ### Tipos mais usados:
 | Tipo | Descrição |
