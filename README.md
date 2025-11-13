@@ -80,7 +80,7 @@ Abaixo está a estrutura real do projeto:
 | Sprint | Período | Principais Entregas | Status |
 |---------|----------|---------------------|---------|
 | **Sprint 1** | 08/09 a 28/09 | Estrutura inicial do projeto, setup de ambiente, CRUD de colaboradores, início do front-end | ✅ Concluída |
-| **Sprint 2** | 06/10 a 26/10 | Dashboard de competências, filtros e autoavaliação | 🔄 Em andamento |
+| **Sprint 2** | 06/10 a 26/10 | Dashboard de competências, filtros e autoavaliação |  ✅ Concluída |
 | **Sprint 3** | 03/11 a 23/11 | Ajustes finais, documentação completa e deploy | ⏳ Pendente |
 
 ---
@@ -96,12 +96,12 @@ Abaixo está a estrutura real do projeto:
 1. Crie um banco de dados chamado `dataskilldb`.
 2. Configure o arquivo `application.properties`:
    ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/dataskill_db
+   spring.datasource.url=jdbc:mysql://localhost:3306/dataskilldb
    spring.datasource.username=root
    spring.datasource.password=senha
 
 
-📊 Backlog do Produto
+## 📊 Backlog do Produto
 
 | #  | Prioridade | User Story                                                                                                   | Sprint | Status       |
 |----|------------|--------------------------------------------------------------------------------------------------------------|--------|--------------|
@@ -114,6 +114,13 @@ Abaixo está a estrutura real do projeto:
 | 7  | Média       | Como usuário, eu quero visualizar os perfis dos colegas em uma interface intuitiva, com cards organizados por competências, setor e nível de proficiência, para que eu possa navegar e identificar talentos internos. | 1      | Em andamento |
 | 8  | Média       | Como usuário, quero que o produto seja entregue com todas a documentações e manuais de usuário, para que haja uma melhor organização e orientação quando formos usar o sistema | 3  | Pendente|
 
+## Backlog das Sprints 
+
+| **Sprint** | **Link** |
+|-------------|------------|
+| `Sprint1` | https://github.com/orgs/DataTechApi/projects/8 |
+| `Sprint2` | https://github.com/orgs/DataTechApi/projects/9 |
+| `Sprint3` | https://github.com/orgs/DataTechApi/projects/10 |
 
 🧩 Definition of Ready (DoR) e ✅ Definition of Done (DoD)
 📌 Definition of Ready (DoR)
@@ -193,7 +200,6 @@ A estrutura básica de um commit segue o padrão:
 | `style` | Mudanças visuais ou de formatação (sem alterar comportamento) |
 | `refactor` | Refatoração de código sem alterar funcionalidade |
 | `test` | Adição ou ajuste de testes |
-
 
 
 
