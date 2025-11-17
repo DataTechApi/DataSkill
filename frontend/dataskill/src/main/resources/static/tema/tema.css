@@ -28,6 +28,10 @@
     .dark-mode .list-group-item:hover {
       background-color: #3a3a3a;
     }
+     .dark-mode table {
+        background-color: #212529;
+        color: #f8f9fa;
+      }
 
    /* light mnode */
     body.light-mode {
@@ -59,6 +63,10 @@
     .light-mode .list-group-item:hover {
       background-color: #f0f0f0;
     }
+    .light-mode table {
+        background-color: #ffffff;
+        color: #212529;
+      }
 
    
     .switch {
