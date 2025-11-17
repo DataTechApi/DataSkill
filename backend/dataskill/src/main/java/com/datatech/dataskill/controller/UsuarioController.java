@@ -2,6 +2,7 @@ package com.datatech.dataskill.controller;
 
 import com.datatech.dataskill.entity.dto.request.UsuarioDTORequest;
 import com.datatech.dataskill.entity.dto.response.UsuarioDTOResponse;
+import com.datatech.dataskill.entity.dto.response.UsuarioPerfilDTOResponse;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -39,16 +40,16 @@ public class UsuarioController {
         URI uri = URI.create(STR."/usuario/\{usuario.getEmail()}");
         return ResponseEntity.created(uri).build();
     }
-    @GetMapping("/{email}")
-    @Operation(summary = "Busca usuário por email", description = "Busca um usuário pelo email cadastrado")
-    @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
-    public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email){
-        Optional<Usuario> usuario = usuarioService.buscarPorEmail(email);
-        if(usuario.isPresent())
-            return ResponseEntity.ok(usuario.get());
-        else
-            return ResponseEntity.notFound().build();
-    }
+//    @GetMapping("/{email}")
+//    @Operation(summary = "Busca usuário por email", description = "Busca um usuário pelo email cadastrado")
+//    @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
+//    public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email){
+//        Optional<Usuario> usuario = usuarioService.buscarPorEmail(email);
+//        if(usuario.isPresent())
+//            return ResponseEntity.ok(usuario.get());
+//        else
+//            return ResponseEntity.notFound().build();
+//    }
     @GetMapping
     @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usuários no banco de dados")
     @ApiResponses(value = {@ApiResponse(responseCode = "200")})
@@ -56,6 +57,18 @@ public class UsuarioController {
         Iterable<Usuario> usuarios = usuarioService.listarUsuarios();
         Iterable<UsuarioDTOResponse> usuarioDTO = modelMapper.map(usuarios, new TypeToken<List<UsuarioDTOResponse>>(){}.getType());
         return ResponseEntity.ok(usuarioDTO);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioPerfilDTOResponse> buscarPorId(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+           UsuarioPerfilDTOResponse perfilDTO = modelMapper.map(usuario.get(), UsuarioPerfilDTOResponse.class);
+            return ResponseEntity.ok((perfilDTO));
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
 }

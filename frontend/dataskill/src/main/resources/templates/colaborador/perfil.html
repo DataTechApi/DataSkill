@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Perfil do Colaborador - DATASKILL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
+
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -35,19 +35,19 @@
           </div>
           <div class="card-body mt-4">
             <div class="info-label">Nome do Colaborador</div>
-            <div class="info-value">Ana Costa</div>
+            <div class="info-value" th:text="${perfil.nome}"></div>
 
             <div class="info-label mt-4">Email</div>
-            <div class="info-value">ana.costa@dataskill.com</div>
+            <div class="info-value" th:text="${perfil.email}"></div>
 
             <div class="info-label mt-4">Cargo</div>
-            <div class="info-value">Analista de Dados</div>
+            <div class="info-value" th:text="${perfil.cargo}"></div>
 
             <div class="info-label mt-4">Telefone</div>
-            <div class="info-value">(12) 91234-5678</div>
+            <div class="info-value" th:text="${perfil.telefone}"></div>
 
             <div class="info-label mt-4">Departamento</div>
-            <div class="info-value">Inteligência de Mercado</div>
+            <div class="info-value" th:text="${perfil.departamento}"></div>
           </div>
         </div>
       </div>
