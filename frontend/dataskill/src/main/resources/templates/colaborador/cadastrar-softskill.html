@@ -31,7 +31,7 @@
     
       <div class="col-md-6">
         <h2 class="card-header ">Cadastro de Soft Skills</h2>
-        <form action="/cadastrar" method="POST" class="mt-4">
+        <form action="/cadastrarSoft" method="POST" class="mt-4">
           <div class="mb-3">
             <label for="skillName" class="form-label">Nome da Skill</label>
             <select name="nome" class="form-control" id="skillName" required>
@@ -57,10 +57,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr th:each="skill : ${skills}">
-                <td th:text="${skill.name}"></td>
+              <tr th:each="skill : ${skill}">
+                <td th:text="${skill.nome}"></td>
                 <td>
-                  <button class="btn btn-sm btn-warning">Editar</button>
                   <button class="btn btn-sm btn-danger">Excluir</button>
                 </td>
               </tr>

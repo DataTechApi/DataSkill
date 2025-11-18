@@ -42,11 +42,15 @@ public class HardSkillController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso");
 
     }
-    @GetMapping
-    public ResponseEntity<List<HardSkillDTOResponse>> listarHardSkills(){
-        List<HardSkill> hardSkills = hardSkillService.listarHardSkills();
-        List<HardSkillDTOResponse> hardSkillDTO = modelMapper.map(hardSkills,
-                new TypeToken<List<HardSkillDTOResponse>>(){}.getType());
-        return ResponseEntity.status(HttpStatus.OK).body(hardSkillDTO);
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<HardSkill>> listarHardSkills(@PathVariable Long userId){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(userId);
+        if(usuario.isPresent()){
+            List<HardSkill> hardSkills = hardSkillService.listarHardSkills(usuario.get().getId());
+            return ResponseEntity.status(HttpStatus.OK).body(hardSkills);
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
     }
 }

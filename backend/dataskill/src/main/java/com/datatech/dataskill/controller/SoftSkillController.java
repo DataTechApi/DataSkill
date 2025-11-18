@@ -51,7 +51,6 @@ public class SoftSkillController {
         Optional<Usuario> usuario =usuarioService.buscarPorId(userId);
         if(usuario.isPresent()){
             List<SoftSkill> softSkills = softSkillService.listarSoftSkills(usuario.get().getId());
-
             return ResponseEntity.status(HttpStatus.OK).body(softSkills);
 
         }else{

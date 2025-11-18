@@ -19,7 +19,7 @@ public class HardSkillService {
     public void cadastrarHardSkill(HardSkill hardSkill){
         hardSkillRepository.save(hardSkill);
     }
-    public List<HardSkill> listarHardSkills(){
-        return hardSkillRepository.findAll();
+    public List<HardSkill> listarHardSkills(Long userId){
+        return hardSkillRepository.findHardSkills(userId);
     }
 }
