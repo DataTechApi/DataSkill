@@ -33,30 +33,30 @@ public class SoftSkillController {
         this.usuarioService = usuarioService;
         this.modelMapper = modelMapper;
     }
+
     @PostMapping("/{userId}")
     @Operation(summary = "Cria softskill", description = "Adiciona um softskill no cadastro do usuário")
     @ApiResponses(value = {@ApiResponse(responseCode = "201"), @ApiResponse(responseCode = "400")})
-    public ResponseEntity cadastrarSoftSkill(@PathVariable Long userId,@RequestBody SoftSkillDTORequest request){
+    public ResponseEntity cadastrarSoftSkill(@PathVariable Long userId, @RequestBody SoftSkillDTORequest request) {
         Optional<Usuario> usuario = usuarioService.buscarPorId(userId);
-        SoftSkill softSkill = modelMapper.map(request,SoftSkill.class);
+        SoftSkill softSkill = modelMapper.map(request, SoftSkill.class);
         softSkill.setUsuario(usuario.get());
         softSkillService.cadastrarSoftSkill(softSkill);
         return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso");
 
     }
-//    @GetMapping
-//    @Operation(summary = "Busca todas as softskiils no banco de dados",
-//    description = "Realiza a busca de todas as softskills cadastradas no sistema")
-//    @ApiResponses(value = {@ApiResponse(responseCode = "200")})
-//    public ResponseEntity<List<SoftSkill>> listarSoftSkills(){
-//        List<SoftSkill> softSkills = softSkillService.listarSoftSkills();
-//        return ResponseEntity.status(HttpStatus.OK).body(softSkills);
-//    }
-@GetMapping
-public ResponseEntity<Iterable<SoftSkillDTOResponse>> listarSoftSkills(){
-    Iterable<SoftSkill> softSkills = softSkillService.listarSoftSkills();
-    Iterable<SoftSkillDTOResponse> softSkillDTO = modelMapper.map(softSkills,
-            new TypeToken<List<SoftSkillDTOResponse>>(){}.getType());
-    return ResponseEntity.status(HttpStatus.OK).body(softSkillDTO);
-}
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<SoftSkill>> listarSoftSkills(@PathVariable Long userId) {
+        Optional<Usuario> usuario =usuarioService.buscarPorId(userId);
+        if(usuario.isPresent()){
+            List<SoftSkill> softSkills = softSkillService.listarSoftSkills(usuario.get().getId());
+
+            return ResponseEntity.status(HttpStatus.OK).body(softSkills);
+
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+    }
 }

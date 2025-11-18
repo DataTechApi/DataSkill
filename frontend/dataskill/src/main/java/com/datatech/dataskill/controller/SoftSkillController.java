@@ -1,5 +1,6 @@
 package com.datatech.dataskill.controller;
 
+import com.datatech.dataskill.client.SoftSkillClient;
 import com.datatech.dataskill.entities.dtos.request.SoftSkillDTORequest;
 import com.datatech.dataskill.entities.enums.Soft;
 import com.datatech.dataskill.service.SoftSkillService;
@@ -17,9 +18,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class SoftSkillController {
 
     private final SoftSkillService softSkillService;
+    private final SoftSkillClient softSkillClient;
 
-    public SoftSkillController(SoftSkillService softSkillService) {
+    public SoftSkillController(SoftSkillService softSkillService, SoftSkillClient softSkillClient) {
         this.softSkillService = softSkillService;
+        this.softSkillClient = softSkillClient;
     }
 
     
@@ -34,7 +37,8 @@ public class SoftSkillController {
     }
     @PostMapping("/cadastrar")
     public ModelAndView salvar(SoftSkillDTORequest request){
-        softSkillService.salvarSoftSkill(request);
+        softSkillClient.cadastrarSoftSkill(LoginController.USUARIO_LOGADO,
+                request);
         return new ModelAndView("redirect:/colaborador/softskill");
     }   
 }

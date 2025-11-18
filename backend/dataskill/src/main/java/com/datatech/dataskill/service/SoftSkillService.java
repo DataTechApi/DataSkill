@@ -17,7 +17,7 @@ public class SoftSkillService {
     public void cadastrarSoftSkill(SoftSkill softSkill){
         softSkillRepository.save(softSkill);
     }
-    public Iterable<SoftSkill> listarSoftSkills(){
-        return softSkillRepository.findAll();
+    public List<SoftSkill> listarSoftSkills(Long userId){
+        return softSkillRepository.findSkills(userId);
     }
 }
