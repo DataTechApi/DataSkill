@@ -29,10 +29,7 @@ public class ColaboradorController {
     public String cadastrarCertificado() {
         return "colaborador/cadastrar-certificado";
     }       
-    @GetMapping("/colaborador/experiencia")
-    public String cadastrarExperiencia() {
-        return "colaborador/cadastrar-experiencia";
-    }       
+
           
     @GetMapping("/colaborador/autoavaliacao")
     public String cadastrarAutoavaliacao() {

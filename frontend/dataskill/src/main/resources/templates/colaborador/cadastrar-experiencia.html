@@ -26,23 +26,29 @@
     <label class="form-check-label"></label>
   </div>
 
-  <div class="container mt-5">
+  <div class="container mt-4">
     <div class="row h-100">
       
       <div class="col-md-6">
         <h2 class="card-header">Cadastro de Experiência</h2>
-        <form id="experienceForm" class="mt-4">
+        <form action="/cadastrarExp" method="POST" class="mt-4">
           <div class="mb-3">
             <label for="titulo" class="form-label">Empresa</label>
-            <input type="text" class="form-control" id="titulo" name="empresa" placeholder="Nome da empresa" required />
+            <input type="text" class="form-control" id="titulo" name="nomeEmpresa" placeholder="Nome da empresa" required />
           </div>
-          <div class="mb-3">
-            <label for="datainicio" class="form-label">Data Início</label>
-            <input type="text" class="form-control" id="datainicio" name="datainicio" placeholder="MM/AAAA" required />
-          </div>
-          <div class="mb-3">
-            <label for="datafim" class="form-label">Data Término</label>
-            <input type="text" class="form-control" id="datafim" name="datafim" placeholder="MM/AAAA" required />
+            <div class="mb-3">
+                <label for="cargo" class="form-label">Cargo</label>
+                <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo" required />
+            </div>
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <label for="datainicio" class="form-label">Data Início</label>
+              <input type="text" class="form-control" id="datainicio" name="dataInicio" placeholder="DD/MM/AAAA" required />
+            </div>
+            <div class="col-sm-6">
+              <label for="datafim" class="form-label">Data Término</label>
+              <input type="text" class="form-control" id="datafim" name="dataFim" placeholder="DD/MM/AAAA" required />
+            </div>
           </div>
           <div class="mb-3">
             <label for="descricao" class="form-label">Descrição</label>
@@ -54,9 +60,27 @@
 
       
       <div class="col-md-6">
-        <h2 class="card-header ">Visualização</h2>
-        <div id="previewContent" class="preview-content mt-4">
-          Preencha o formulário para visualizar sua experiência aqui.
+        <h2 class="card-header ">Experiências Cadastradas</h2>
+        <div class="table-responsive mt-4">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Empresa</th>
+                <th>Cargo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="skill : ${exper}">
+                <td th:text="${skill.nomeEmpresa}"></td>
+                <td th:text="${skill.cargo}"></td>
+                <td th:text="${skill.descricao}"></td>
+                <td>
+                  <button class="btn btn-sm btn-danger">Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

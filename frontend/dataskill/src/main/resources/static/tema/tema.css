@@ -28,10 +28,12 @@
     .dark-mode .list-group-item:hover {
       background-color: #3a3a3a;
     }
-     .dark-mode table {
+     .dark-mode .table,
+     .dark-mode .table-striped {
         background-color: #212529;
-        color: #f8f9fa;
+        color: #f0f0f0; 
       }
+    
 
    /* light mnode */
     body.light-mode {
@@ -40,7 +42,7 @@
     }
     .light-mode .form-control, 
     .light-mode .btn .form-select{
-      background-color: #cfc2c2;
+      background-color: #ece3e3;
       color: #1c1c1c;
       border: 1px solid #ccc;
     }
