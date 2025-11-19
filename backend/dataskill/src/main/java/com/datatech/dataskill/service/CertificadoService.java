@@ -21,9 +21,9 @@ public class CertificadoService {
     }
 
     // Listar
-    public List<Certificado> listarCertificados() {
+    public List<Certificado> listarCertificados(Long userId) {
 
-        return certificadoRepository.findAll();
+        return certificadoRepository.findCertificado(userId);
     }
 
     // Buscar ID

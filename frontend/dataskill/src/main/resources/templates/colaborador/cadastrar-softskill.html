@@ -47,26 +47,19 @@
 
      
       <div class="col-md-6">
-        <h2 class="card-header ">SoftSkills Cadastradas</h2>
-        <div class="table-responsive mt-4">
-          <table class="table table-striped ">
-            <thead class=" card-header">
-              <tr class=" card-header">
-                <th >Skill</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr th:each="skill : ${skill}">
-                <td th:text="${skill.nome}"></td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Excluir</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <h2 class="card-header">Soft Skills Cadastradas</h2>
+
+  <ul class="list-group mt-4">
+    <li class="list-group-item d-flex justify-content-between align-items-center"
+        th:each="skill : ${skill}">
+      <span th:text="${skill.nome}"></span> 
+      <div>
+        <button class="btn btn-sm btn-danger">Excluir</button>
       </div>
+    </li>
+  </ul>
+</div>
+
     </div>
   </div>
 

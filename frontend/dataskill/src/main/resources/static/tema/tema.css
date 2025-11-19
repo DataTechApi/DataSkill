@@ -28,8 +28,8 @@
     .dark-mode .list-group-item:hover {
       background-color: #3a3a3a;
     }
-     .dark-mode .table,
-     .dark-mode .table-striped {
+     .dark-mode table,
+     .dark-mode table-striped {
         background-color: #212529;
         color: #f0f0f0; 
       }

@@ -25,20 +25,7 @@ public class ColaboradorController {
         return "colaborador/perfil";
     }
                                                  
-    @GetMapping("/colaborador/certificado")
-    public String cadastrarCertificado() {
-        return "colaborador/cadastrar-certificado";
-    }       
 
-          
-    @GetMapping("/colaborador/autoavaliacao")
-    public String cadastrarAutoavaliacao() {
-        return "colaborador/cadastrar-autoavaliacao";
-    } 
-    @GetMapping("/colaborador/avaliacao")
-    public String cadastrarAvaliacao() {
-        return "colaborador/cadastrar-avaliacao";
-    } 
 
 
 }

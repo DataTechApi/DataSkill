@@ -30,22 +30,22 @@
       
       <div class="col-md-5">
         <h2 class="card-header">Cadastro do Curso</h2>
-        <form id="certificadoForm" class="mt-4">
+        <form action="/cadastrarCer" method="POST"  class="mt-4">
           <div class="mb-3">
             <label for="instituicao" class="form-label">Instituição</label>
-            <input type="text" class="form-control" id="instituicao" placeholder="Nome da instituição">
+            <input type="text" class="form-control" id="instituicao" name="instituicao" placeholder="Nome da instituição">
           </div>
           <div class="mb-3">
             <label for="curso" class="form-label">Nome do Curso</label>
-            <input type="text" class="form-control" id="curso" placeholder="Nome do curso">
+            <input type="text" class="form-control" id="curso" name="nome" placeholder="Nome do curso">
           </div>
           <div class="mb-3">
             <label for="dataInicio" class="form-label">Data de Início</label>
-            <input type="date" class="form-control" id="dataInicio">
+            <input type="date" class="form-control" id="dataInicio" name="dataInicio">
           </div>
           <div class="mb-3">
             <label for="dataFim" class="form-label">Data de Conclusão</label>
-            <input type="date" class="form-control" id="dataFim">
+            <input type="date" class="form-control" id="dataFim" name="dataFim">
           </div>
           <button type="submit" class="btn btn-dark btn-lg w-100 mb-2">Cadastrar</button>
         </form>
@@ -54,29 +54,20 @@
      
       <div class="col-md-6">
         <h2 class="card-header">Certificados Cadastrados</h2>
-        <ul class="list-group mt-4">
-          <li class="list-group-item">
-            <span>Curso de HTML - IFSP - 01/01/2025 a 01/03/2025</span>
-            <span class="actions">
-              <button class="btn btn-sm btn-outline-light">Editar</button>
-              <button class="btn btn-sm btn-outline-danger">Excluir</button>
-            </span>
-          </li>
-          <li class="list-group-item">
-            <span>Curso de Python - UNIVESP - 15/02/2025 a 15/04/2025</span>
-            <span class="actions">
-              <button class="btn btn-sm btn-outline-light">Editar</button>
-              <button class="btn btn-sm btn-outline-danger">Excluir</button>
-            </span>
-          </li>
-          <li class="list-group-item">
-            <span>Curso de Banco de Dados - SENAI - 10/03/2025 a 10/05/2025</span>
-            <span class="actions">
-              <button class="btn btn-sm btn-outline-light">Editar</button>
-              <button class="btn btn-sm btn-outline-danger">Excluir</button>
-            </span>
-          </li>
-        </ul>
+          <ul class="list-group mt-4">
+              <li class="list-group-item d-flex justify-content-between align-items-start"
+                  th:each="skill : ${cert}">
+
+                  <div class="ms-2 me-auto">
+                      <div class="fw-bold" th:text="'Instituição: ' + ${skill.instituicao}"></div>
+                      <span th:text="'Curso: ' +${skill.nome}"></span><br>
+                      <span th:text="'Data Início: ' +${skill.dataInicio}" ></span><br>
+                      <span th:text="'Data Término: ' +${skill.dataFim}" ></span><br>
+                  </div>
+                  <button class="btn btn-sm btn-danger">Excluir</button>
+                  <button class="btn btn-sm btn-dark">Editar</button>
+              </li>
+          </ul>
       </div>
     </div>
   </div>

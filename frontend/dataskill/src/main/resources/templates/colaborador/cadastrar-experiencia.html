@@ -43,11 +43,11 @@
           <div class="row mb-3">
             <div class="col-sm-6">
               <label for="datainicio" class="form-label">Data Início</label>
-              <input type="text" class="form-control" id="datainicio" name="dataInicio" placeholder="DD/MM/AAAA" required />
+              <input type="date" class="form-control" id="datainicio" name="dataInicio" placeholder="DD/MM/AAAA" required />
             </div>
             <div class="col-sm-6">
               <label for="datafim" class="form-label">Data Término</label>
-              <input type="text" class="form-control" id="datafim" name="dataFim" placeholder="DD/MM/AAAA" required />
+              <input type="date" class="form-control" id="datafim" name="dataFim" placeholder="DD/MM/AAAA" required />
             </div>
           </div>
           <div class="mb-3">
@@ -57,32 +57,25 @@
           <button type="submit" class="btn btn-dark btn-lg w-100 mb-2">Cadastrar</button>
         </form>
       </div>
-
-      
       <div class="col-md-6">
-        <h2 class="card-header ">Experiências Cadastradas</h2>
-        <div class="table-responsive mt-4">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Empresa</th>
-                <th>Cargo</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr th:each="skill : ${exper}">
-                <td th:text="${skill.nomeEmpresa}"></td>
-                <td th:text="${skill.cargo}"></td>
-                <td th:text="${skill.descricao}"></td>
-                <td>
-                  <button class="btn btn-sm btn-danger">Excluir</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <h2 class="card-header">Experiências Cadastradas</h2>
+  
+  <ul class="list-group mt-4">
+    <li class="list-group-item d-flex justify-content-between align-items-start" 
+        th:each="skill : ${exper}">
+      
+      <div class="ms-2 me-auto">
+        <div class="fw-bold" th:text="'Empresa: ' + ${skill.nomeEmpresa}"></div>
+        <span th:text="'Cargo: ' +${skill.cargo}"></span><br>
+        <span th:text="'Data Início: ' +${skill.dataInicio}" ></span><br>
+        <span th:text="'Data Término: ' +${skill.dataFim}" ></span><br>
+        <small th:text="'Descrição: ' +${skill.descricao}"></small>
       </div>
+      <button class="btn btn-sm btn-danger">Excluir</button>
+      <button class="btn btn-sm btn-dark">Editar</button>
+    </li>
+  </ul>
+</div>
     </div>
   </div>
 
