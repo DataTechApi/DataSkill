@@ -16,12 +16,13 @@ public class AutoAvaliacaoService {
         this.autoAvaliacaoRepository = autoAvaliacaoRepository;
     }
 
-    public AutoAvaliacao cadastrarAutoAvaliacao(AutoAvaliacao autoAvaliacao) {
-        return autoAvaliacaoRepository.save(autoAvaliacao);
+    public void cadastrarAutoAvaliacao(AutoAvaliacao autoAvaliacao) {
+         autoAvaliacaoRepository.save(autoAvaliacao);
     }
 
-    public List<AutoAvaliacao> buscarAutoAvaliacao() {
-        return autoAvaliacaoRepository.findAll();
+    public List<AutoAvaliacao> buscarAutoAvaliacao(Long userId) {
+
+        return autoAvaliacaoRepository.findAutoAvaliacao(userId);
     }
 
     public void deletarAutoAvaliacao(Long id) {

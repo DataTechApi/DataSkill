@@ -30,14 +30,11 @@
      
       <div class="col-md-6">
         <h2 class="card-header">Autoavaliação</h2>
-        <form class="mt-4">
-          <div class="mb-3">
-            <label for="nome" class="form-label">Nome do Colaborador</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required>
-          </div>
+        <form class="mt-4" action="/cadastrarAuto" method="POST">
+
           <div class="mb-3">
             <label for="descricao" class="form-label">Descrição</label>
-            <textarea class="form-control" id="descricao" rows="5" placeholder="Descreva sua autoavaliação..." required></textarea>
+            <textarea class="form-control" id="descricao" name="descricao" rows="5" placeholder="Descreva sua autoavaliação..." required></textarea>
           </div>
           <button type="submit" class="btn btn-dark btn-lg w-100">Enviar Autoavaliação</button>
         </form>
@@ -45,12 +42,19 @@
      
       <div class="col-md-6">
         <h2 class="card-header">Autoavaliação Registrada</h2>
-        <ul class="list-group mt-4">
-          <li class="list-group-item">
-            <strong>Colaborador:</strong> Ana Costa<br>
-            <strong>Descrição:</strong> Acredito que evoluí bastante na comunicação com a equipe e na entrega de resultados. Estou mais confiante em liderar projetos e contribuir com ideias estratégicas.
-          </li>
-        </ul>
+          <ul class="list-group mt-4">
+              <li class="list-group-item d-flex justify-content-between align-items-start"
+                  th:each="auto : ${auto}">
+
+                  <div class="ms-2 me-auto">
+                      <div class="fw-bold" th:text="'Auto-Avaliação: ' "></div>
+                      <div class="fw-bold" th:text=" ${auto.descricao}"></div>
+
+                  </div>
+                  <button class="btn btn-sm btn-danger">Excluir</button>
+                  <button class="btn btn-sm btn-dark">Editar</button>
+              </li>
+          </ul>
       </div>
     </div>
   </div>

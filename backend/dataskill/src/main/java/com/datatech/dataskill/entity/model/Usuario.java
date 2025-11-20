@@ -50,7 +50,8 @@ public class Usuario {
     @OneToMany(mappedBy = ("usuario"))
     private List<Certificado> certificados;
 
-    @OneToOne
-    @JoinColumn(name = "auto_avaliacao_id")
-    private AutoAvaliacao autoAvaliacao;
+    @OneToMany(mappedBy = ("usuario"))
+    private List<AutoAvaliacao> autoAvalicao;
+
+
     }
