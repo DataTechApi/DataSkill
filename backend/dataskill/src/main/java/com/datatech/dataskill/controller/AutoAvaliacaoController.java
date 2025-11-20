@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -74,17 +75,17 @@ public class AutoAvaliacaoController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @Operation(summary = "Realiza a exclusão da autoavaliação",
             description = "Ferramenta que permite excluir uma das autoavaliações.")
     @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
-    public ResponseEntity deletarAutoAvaliacao(Long id) {
+    public ResponseEntity deletarAutoAvaliacao(@PathVariable Long id) {
         Optional<AutoAvaliacao> autoAvaliacao = autoAvaliacaoService.buscarAutoAvaliacaoId(id);
         if (autoAvaliacao.isPresent()){
             autoAvaliacaoService.deletarAutoAvaliacao(id);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.status(HttpStatus.OK).body("Auto-avaliação deletada com sucesso!!!");
         }else{
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Auto-avaliação não encontrada!!!");
         }
 
     }

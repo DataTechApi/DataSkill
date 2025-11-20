@@ -9,6 +9,7 @@ import com.datatech.dataskill.entities.enums.Hard;
 import com.datatech.dataskill.entities.enums.Soft;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,7 +30,7 @@ public class HardSkillController {
         List<HardSkillDTOResponse> hardSkills = hardSkillClient.listarHardSkill(LoginController.USUARIO_LOGADO);
         mv.addObject("request", request);
         mv.addObject("hardskill", Hard.values());
-        mv.addObject("skill", hardSkills);
+        mv.addObject("hard", hardSkills);
         return mv;
 
     }
@@ -37,6 +38,11 @@ public class HardSkillController {
     public ModelAndView salvar(HardSkillDTORequest request){
         hardSkillClient.cadastrarHardSkill(LoginController.USUARIO_LOGADO, request);
         return new ModelAndView("redirect:/colaborador/hardskill");
+    }
+    @GetMapping("/hardskill/{id}")
+    public String deletar(@PathVariable Long id){
+        hardSkillClient.deletarHardSkill(id);
+        return "redirect:/colaborador/hardskill";
     }
 
 }

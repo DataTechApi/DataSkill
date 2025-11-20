@@ -47,7 +47,7 @@
             </div>
             <div class="col-sm-6">
               <label for="datafim" class="form-label">Data Término</label>
-              <input type="date" class="form-control" id="datafim" name="dataFim" placeholder="DD/MM/AAAA" required />
+              <input type="date" class="form-control" id="datafim" name="dataFim" placeholder="DD/MM/AAAA" />
             </div>
           </div>
           <div class="mb-3">
@@ -71,8 +71,8 @@
         <span th:text="'Data Término: ' +${skill.dataFim}" ></span><br>
         <small th:text="'Descrição: ' +${skill.descricao}"></small>
       </div>
-      <button class="btn btn-sm btn-danger">Excluir</button>
-      <button class="btn btn-sm btn-dark">Editar</button>
+      <a th:href="@{/experiencia/{id}(id=${skill.id})}" class="btn btn-sm btn-danger">Excluir</a>
+      <a class="btn btn-sm btn-dark">Editar</a>
     </li>
   </ul>
 </div>

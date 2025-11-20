@@ -39,11 +39,15 @@ public class SoftSkillController {
         return mv;
 
     }
-
     @PostMapping("/cadastrarSoft")
     public ModelAndView salvar(SoftSkillDTORequest request) {
         softSkillClient.cadastrarSoftSkill(LoginController.USUARIO_LOGADO,
                 request);
         return new ModelAndView("redirect:/colaborador/softskill");
+    }
+    @GetMapping("/softskill/{id}")
+    public String deletar(@PathVariable Long id){
+        softSkillClient.deletarSoftSkill(id);
+        return "redirect:/colaborador/softskill";
     }
 }

@@ -41,7 +41,7 @@
               </option>
             </select>
           </div>
-          <button type="submit" class="btn btn-dark btn-lg w-100 mb-2">Cadastrar</button>
+          <button type="submit"  class="btn btn-dark btn-lg w-100 mb-2">Cadastrar</button>
         </form>
       </div>
 
@@ -51,10 +51,10 @@
 
   <ul class="list-group mt-4">
     <li class="list-group-item d-flex justify-content-between align-items-center"
-        th:each="skill : ${skill}">
-      <span th:text="${skill.nome}"></span>
+        th:each="hard : ${hard}">
+      <span th:text="${hard.nome}"></span>
       <div>
-        <button class="btn btn-sm btn-danger">Excluir</button>
+        <a th:href="@{/hardskill/{id}(id=${hard.id})}" class="btn btn-sm btn-danger">Excluir</a>
       </div>
     </li>
   </ul>

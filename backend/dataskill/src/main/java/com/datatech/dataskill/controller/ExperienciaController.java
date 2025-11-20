@@ -12,12 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
@@ -51,8 +46,6 @@ public class ExperienciaController {
         return ResponseEntity.created(uri).build();
 
     }
-
-    
     @GetMapping("/{userId}")
     @Operation(summary = "Busca experiência por ID")
     @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
@@ -63,6 +56,16 @@ public class ExperienciaController {
             return ResponseEntity.status(HttpStatus.OK).body(experiencias);
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarExperiencia(@PathVariable Long id){
+        Optional<Experiencia> experiencia = experienciaService.buscarPorId(id);
+        if(experiencia.isPresent()){
+            experienciaService.deletarExperiencia(experiencia.get().getId());
+            return ResponseEntity.status(HttpStatus.OK).body("Experiência deletada com sucesso!!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Experiência não encontrada!!");
         }
     }
 

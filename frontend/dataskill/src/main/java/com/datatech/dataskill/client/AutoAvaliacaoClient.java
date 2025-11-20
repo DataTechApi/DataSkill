@@ -18,4 +18,7 @@ public interface AutoAvaliacaoClient {
 
     @RequestMapping(method = RequestMethod.GET, value="/autoavaliacao/{userId}")
     List<AutoAvaliacaoDTOResponse> listarAutoAvaliacao(@PathVariable("userId")Long id);
+
+     @RequestMapping(method = RequestMethod.DELETE, value="/autoavaliacao/{id}")
+    void deletarAutoAvalicao(@PathVariable Long id);
 }

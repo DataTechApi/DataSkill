@@ -14,5 +14,5 @@ import java.time.LocalDate;
 public class AutoAvaliacaoDTOResponse {
     private Long id;
     private String descricao;
-    private LocalDate dataAutoAvalicao;
+    private LocalDate dataAutoAvaliacao;
 }

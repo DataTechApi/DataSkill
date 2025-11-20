@@ -16,6 +16,12 @@ public class ExperienciaService {
     public ExperienciaService(ExperienciaRepository experienciaRepository) {
         this.experienciaRepository = experienciaRepository;
     }
+    public Optional<Experiencia> buscarPorId(Long id){
+        return experienciaRepository.findById(id);
+    }
+    public void deletarExperiencia(Long id){
+        experienciaRepository.deleteById(id);
+    }
 
     public void cadastrarExperiencia(Experiencia experiencia){
         experienciaRepository.save(experiencia);

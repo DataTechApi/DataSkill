@@ -54,7 +54,7 @@
         th:each="skill : ${skill}">
       <span th:text="${skill.nome}"></span> 
       <div>
-        <button class="btn btn-sm btn-danger">Excluir</button>
+        <a  th:href="@{/softskill/{id}(id=${skill.id})}" class="btn btn-sm btn-danger">Excluir</a>
       </div>
     </li>
   </ul>

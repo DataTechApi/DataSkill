@@ -18,4 +18,7 @@ public interface SoftSkillClient {
 
     @RequestMapping(method = RequestMethod.GET, value="/softskill/{userId}")
     List<SoftSkillDTOResponse> listarSoftSkill(@PathVariable("userId")Long id);
+
+    @RequestMapping(method = RequestMethod.DELETE, value="/softskill/{id}")
+    void deletarSoftSkill(@PathVariable Long id);
 }

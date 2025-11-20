@@ -53,4 +53,14 @@ public class HardSkillController {
         }
 
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarHardSkill(@PathVariable Long id){
+        Optional<HardSkill> hardSkill = hardSkillService.buscarPorId(id);
+        if(hardSkill.isPresent()){
+            hardSkillService.deletarHardSkill(hardSkill.get().getId());
+            return ResponseEntity.status(HttpStatus.OK).body("Hardskill deletada com sucesso");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Hardskill não encontrada");
+        }
+    }
 }

@@ -49,10 +49,11 @@
                   <div class="ms-2 me-auto">
                       <div class="fw-bold" th:text="'Auto-Avaliação: ' "></div>
                       <div class="fw-bold" th:text=" ${auto.descricao}"></div>
+                      <div class="fw-bold" th:text="'Data da Auto Avaliação: ' + ${auto.dataAutoAvaliacao}"></div>
 
                   </div>
-                  <button class="btn btn-sm btn-danger">Excluir</button>
-                  <button class="btn btn-sm btn-dark">Editar</button>
+                  <a th:href="@{/autoavaliacao/{id} (id=${auto.id})}" class="btn btn-sm btn-danger">Excluir</a>
+                  <a class="btn btn-sm btn-dark">Editar</a>
               </li>
           </ul>
       </div>

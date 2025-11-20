@@ -17,6 +17,9 @@ public interface CertificadoClient {
 
     @RequestMapping(method = RequestMethod.GET, value="/certificado/{userId}")
     List<CertificadoDTOResponse> listarCertificado(@PathVariable("userId")Long id);
+
+    @RequestMapping(method = RequestMethod.DELETE, value="/certificado/{id}")
+    void deletarCertificado(@PathVariable Long id);
 }
 
 

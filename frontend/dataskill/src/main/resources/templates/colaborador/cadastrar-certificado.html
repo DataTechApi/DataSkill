@@ -64,8 +64,8 @@
                       <span th:text="'Data Início: ' +${skill.dataInicio}" ></span><br>
                       <span th:text="'Data Término: ' +${skill.dataFim}" ></span><br>
                   </div>
-                  <button class="btn btn-sm btn-danger">Excluir</button>
-                  <button class="btn btn-sm btn-dark">Editar</button>
+                  <a th:href="@{/certificado/{id}(id=${skill.id})}" class="btn btn-sm btn-danger" >Excluir</a>
+                  <a class="btn btn-sm btn-dark">Editar</a>
               </li>
           </ul>
       </div>

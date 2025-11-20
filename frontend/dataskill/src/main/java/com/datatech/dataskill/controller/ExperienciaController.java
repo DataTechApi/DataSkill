@@ -5,6 +5,7 @@ import com.datatech.dataskill.entities.dtos.request.ExperienciaDTORequest;
 import com.datatech.dataskill.entities.dtos.response.ExperienciaDTOResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,5 +31,10 @@ public class ExperienciaController {
     public ModelAndView salvar(ExperienciaDTORequest request){
         experienciaClient.cadastrarExperiencia(LoginController.USUARIO_LOGADO, request);
         return new ModelAndView("redirect:/colaborador/experiencia");
+    }
+    @GetMapping("/experiencia/{id}")
+    public String deletar(@PathVariable Long id){
+        experienciaClient.deletarExperiencia(id);
+        return "redirect:/colaborador/experiencia";
     }
 }

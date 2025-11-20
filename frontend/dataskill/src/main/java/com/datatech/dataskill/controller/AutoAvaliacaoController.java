@@ -8,6 +8,7 @@ import com.datatech.dataskill.entities.dtos.response.AutoAvaliacaoDTOResponse;
 import com.datatech.dataskill.entities.dtos.response.CertificadoDTOResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,5 +36,10 @@ public class AutoAvaliacaoController {
     public ModelAndView salvar(AutoAvaliacaoDTORequest request){
         autoAvaliacaoClient.cadastrarAutoAvaliacao(LoginController.USUARIO_LOGADO, request);
         return new ModelAndView("redirect:/colaborador/autoavaliacao");
+    }
+    @GetMapping("/autoavaliacao/{id}")
+    public String deletar(@PathVariable Long id){
+        autoAvaliacaoClient.deletarAutoAvalicao(id);
+        return "redirect:/colaborador/autoavaliacao";
     }
 }

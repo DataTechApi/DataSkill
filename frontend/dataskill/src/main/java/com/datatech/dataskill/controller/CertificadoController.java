@@ -5,6 +5,7 @@ import com.datatech.dataskill.entities.dtos.request.CertificadoDTORequest;
 import com.datatech.dataskill.entities.dtos.response.CertificadoDTOResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,5 +32,10 @@ public class CertificadoController {
     public ModelAndView salvar(CertificadoDTORequest request){
         certificadoClient.cadastrarCertificado(LoginController.USUARIO_LOGADO, request);
         return new ModelAndView("redirect:/colaborador/certificado");
+    }
+    @GetMapping("/certificado/{id}")
+    public String deletar(@PathVariable Long id){
+        certificadoClient.deletarCertificado(id);
+        return "redirect:/colaborador/certificado";
     }
 }

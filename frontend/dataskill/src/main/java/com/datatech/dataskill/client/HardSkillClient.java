@@ -18,5 +18,6 @@ public interface HardSkillClient {
     @RequestMapping(method = RequestMethod.GET, value="/hardskill/{userId}")
     List<HardSkillDTOResponse> listarHardSkill(@PathVariable("userId")Long id);
 
-
+    @RequestMapping(method = RequestMethod.DELETE, value="/hardskill/{id}")
+    void deletarHardSkill(@PathVariable Long id);
 }

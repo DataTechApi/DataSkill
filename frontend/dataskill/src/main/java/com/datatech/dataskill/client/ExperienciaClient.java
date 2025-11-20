@@ -17,4 +17,7 @@ public interface ExperienciaClient {
 
     @RequestMapping(method = RequestMethod.GET, value="/experiencia/{userId}")
     List<ExperienciaDTOResponse> listarExperiencia(@PathVariable("userId")Long id);
+
+    @RequestMapping(method = RequestMethod.DELETE, value="/experiencia/{id}")
+    void deletarExperiencia(@PathVariable Long id);
 }
