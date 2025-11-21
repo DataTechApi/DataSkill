@@ -4,9 +4,8 @@ import com.datatech.dataskill.client.ExperienciaClient;
 import com.datatech.dataskill.entities.dtos.request.ExperienciaDTORequest;
 import com.datatech.dataskill.entities.dtos.response.ExperienciaDTOResponse;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -36,5 +35,16 @@ public class ExperienciaController {
     public String deletar(@PathVariable Long id){
         experienciaClient.deletarExperiencia(id);
         return "redirect:/colaborador/experiencia";
+    }
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable Long id, Model model){
+        ExperienciaDTOResponse experiencia = experienciaClient.buscarPorId(id);
+        model.addAttribute("experiencia", experiencia);
+        return "/colaborador/editar-experiencia";
+    }
+    @PutMapping("/experiencia/{id}")
+    public String updateCoffee(@ModelAttribute ExperienciaDTOResponse experiencia, @PathVariable Long id){
+        experienciaClient.alterarExperiencia(experiencia.getId(), experiencia);
+        return ("redirect:/colaborador/experiencia");
     }
 }

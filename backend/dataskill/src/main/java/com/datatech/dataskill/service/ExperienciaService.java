@@ -30,5 +30,8 @@ public class ExperienciaService {
     public List<Experiencia> buscarExperiencia(Long userId) {
         return experienciaRepository.findExperiencia(userId);
     }
-    
+
+    public void alterarExperiencia(Experiencia experiencia){
+        experienciaRepository.save(experiencia);
+    }
 }

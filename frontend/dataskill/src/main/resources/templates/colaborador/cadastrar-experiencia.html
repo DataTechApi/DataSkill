@@ -71,8 +71,18 @@
         <span th:text="'Data Término: ' +${skill.dataFim}" ></span><br>
         <small th:text="'Descrição: ' +${skill.descricao}"></small>
       </div>
-      <a th:href="@{/experiencia/{id}(id=${skill.id})}" class="btn btn-sm btn-danger">Excluir</a>
-      <a class="btn btn-sm btn-dark">Editar</a>
+      <div class="d-flex gap-2">
+  <a th:href="@{/experiencia/{id}(id=${skill.id})}" 
+     class="btn btn-danger btn-lg">
+     <i class="bi bi-trash"></i> Excluir
+  </a>
+
+  <a th:href="@{/editar/{id}(id=${skill.id})}" 
+     class="btn btn-dark btn-lg">
+     <i class="bi bi-pencil-square"></i> Editar
+  </a>
+</div>
+
     </li>
   </ul>
 </div>
