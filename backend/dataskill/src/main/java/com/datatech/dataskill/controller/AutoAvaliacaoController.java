@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.table.AbstractTableModel;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,15 +52,6 @@ public class AutoAvaliacaoController {
         }
     }
 
-//    @GetMapping
-//    @Operation(summary = "Realiza a busca da autoavaliação",
-//            description = "Ferramenta que permite buscar todas as autoavaliações.")
-//    @ApiResponses(value = {@ApiResponse(responseCode = "200")})
-//    public ResponseEntity<List<AutoAvaliacao>> buscarAutoAvaliacao() {
-//        return ResponseEntity.ok(autoAvaliacaoService.buscarAutoAvaliacao());
-//
-//    }
-
     @GetMapping("/{userId}")
     @Operation(summary = "Realiza a busca da autoavaliação pelo ID",
             description = "Busca  autoavaliação pelo ID.")
@@ -87,7 +79,27 @@ public class AutoAvaliacaoController {
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Auto-avaliação não encontrada!!!");
         }
-
+    }
+    @GetMapping("/auto/{id}")
+    public ResponseEntity budcarPorId(@PathVariable Long id){
+        Optional<AutoAvaliacao> autoAvaliacao = autoAvaliacaoService.buscarAutoAvaliacaoId(id);
+        if(autoAvaliacao.isPresent()){
+            return ResponseEntity.status(HttpStatus.OK).body(autoAvaliacao);
+        }else{
+            return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity alterarAutoAvaliacao(@PathVariable Long id, @RequestBody AutoAvaliacaoDTORequest request){
+        Optional<AutoAvaliacao> autoAvaliacao = autoAvaliacaoService.buscarAutoAvaliacaoId(id);
+        if(autoAvaliacao.isPresent()){
+            autoAvaliacao.get().setDataAutoAvaliacao(request.dataAutoAvaliacao());
+            autoAvaliacao.get().setDescricao(request.descricao());
+            autoAvaliacaoService.alterarAutoAvaliacao(autoAvaliacao.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Auto Avaliação alterado com sucesso!!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Auto Avaliação não encontrada!!");
+        }
     }
 
 }

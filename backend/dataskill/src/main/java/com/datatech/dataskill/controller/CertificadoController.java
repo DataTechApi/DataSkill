@@ -1,5 +1,6 @@
 package com.datatech.dataskill.controller;
 
+import com.datatech.dataskill.entity.dto.request.CertificadoDTORequest;
 import com.datatech.dataskill.entity.model.Certificado;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.CertificadoService;
@@ -10,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.coyote.Response;
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +34,7 @@ public class CertificadoController {
         this.modelMapper = modelMapper;
     }
 
-    // Criar certificado
+
     @PostMapping("/{userId}")
     @Operation(summary = "Cadastra um novo certificado", description = "Cadastra um novo certificado no banco de dados")
     @ApiResponses({
@@ -51,7 +53,7 @@ public class CertificadoController {
         }
     }
 
-    // Listar
+
     @GetMapping("/{userId}")
     @Operation(summary = "Lista todos os certificados por usuário",description = "Lista todos os certificados cadastrados no banco de dados")
     public ResponseEntity<List<Certificado>> listar(@PathVariable Long userId) {
@@ -62,21 +64,35 @@ public class CertificadoController {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
-
-
-
-    //Atualizar
     @PutMapping("/{id}")
     @Operation(summary = "Atualiza um certificado existente",description = "Atualiza um certificado existente no banco de dados")
-    public ResponseEntity<Certificado> atualizar(@PathVariable Long id, @RequestBody Certificado request) {
-        return ResponseEntity.ok(certificadoService.atualizarCertificado(id, request));
-    }
+    public ResponseEntity atualizar(@PathVariable Long id, @RequestBody CertificadoDTORequest request) {
+        Optional<Certificado> certificado = certificadoService.buscarPorId(id);
+        if(certificado.isPresent()){
+            certificado.get().setNome(request.nome());
+            certificado.get().setInstituicao(request.instituicao());
+            certificado.get().setDataInicio(request.dataInicio());
+            certificado.get().setDataFim(request.dataFim());
+            certificadoService.atualizarCertificado(certificado.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Certificado alterado com sucesso!!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Certificado não encontrado!!");
+        }
 
-    //Deletar
+    }
     @DeleteMapping("/{id}")
     @Operation(summary = "Deleta um certificado pelo ID",description = "Deleta um certificado pelo ID")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         certificadoService.deletarCertificado(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/cert/{id}")
+    public ResponseEntity<Optional<Certificado>> buscarCertificado(@PathVariable Long id){
+        Optional<Certificado> certificado = certificadoService.buscarPorId(id);
+        if (certificado.isPresent()){
+            return ResponseEntity.status(HttpStatus.OK).body(certificado);
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 }
