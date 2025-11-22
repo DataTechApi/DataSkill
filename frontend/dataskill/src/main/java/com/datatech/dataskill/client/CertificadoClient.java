@@ -2,8 +2,11 @@ package com.datatech.dataskill.client;
 
 import com.datatech.dataskill.entities.dtos.request.CertificadoDTORequest;
 import com.datatech.dataskill.entities.dtos.response.CertificadoDTOResponse;
+import com.datatech.dataskill.entities.dtos.response.ExperienciaDTOResponse;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,6 +23,12 @@ public interface CertificadoClient {
 
     @RequestMapping(method = RequestMethod.DELETE, value="/certificado/{id}")
     void deletarCertificado(@PathVariable Long id);
+
+    @RequestMapping(method = RequestMethod.PUT, value="/certificado/{id}")
+    void alterarCertificado (@PathVariable Long id, @RequestBody CertificadoDTOResponse request);
+
+    @RequestMapping(method = RequestMethod.GET, value="/certificado/cert/{id}")
+    CertificadoDTOResponse buscarPorId(@PathVariable Long id);
 }
 
 

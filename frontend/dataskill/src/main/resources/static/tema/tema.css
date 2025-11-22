@@ -62,7 +62,7 @@
       border: 1px solid #ccc;
       color: #1c1c1c;
     }
-    .light-mode .list-group-item:hover {
+    .light-mode .list-group-item:hover .bi{
       background-color: #f0f0f0;
     }
     .light-mode table {

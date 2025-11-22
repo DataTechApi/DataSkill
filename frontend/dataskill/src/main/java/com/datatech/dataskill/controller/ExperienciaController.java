@@ -36,14 +36,14 @@ public class ExperienciaController {
         experienciaClient.deletarExperiencia(id);
         return "redirect:/colaborador/experiencia";
     }
-    @GetMapping("/editar/{id}")
+    @GetMapping("/editar/exp/{id}")
     public String editar(@PathVariable Long id, Model model){
         ExperienciaDTOResponse experiencia = experienciaClient.buscarPorId(id);
         model.addAttribute("experiencia", experiencia);
         return "/colaborador/editar-experiencia";
     }
     @PutMapping("/experiencia/{id}")
-    public String updateCoffee(@ModelAttribute ExperienciaDTOResponse experiencia, @PathVariable Long id){
+    public String alterarExperiencia(@ModelAttribute ExperienciaDTOResponse experiencia, @PathVariable Long id){
         experienciaClient.alterarExperiencia(experiencia.getId(), experiencia);
         return ("redirect:/colaborador/experiencia");
     }

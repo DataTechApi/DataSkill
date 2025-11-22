@@ -29,7 +29,7 @@
     <div class="row h-100">
       
       <div class="col-md-5">
-        <h2 class="card-header">Cadastro do Curso</h2>
+        <h2 class="card-header">Cadastro de Certificado</h2>
         <form action="/cadastrarCer" method="POST"  class="mt-4">
           <div class="mb-3">
             <label for="instituicao" class="form-label">Instituição</label>
@@ -56,16 +56,24 @@
         <h2 class="card-header">Certificados Cadastrados</h2>
           <ul class="list-group mt-4">
               <li class="list-group-item d-flex justify-content-between align-items-start"
-                  th:each="skill : ${cert}">
+                  th:each="cert : ${cert}">
 
                   <div class="ms-2 me-auto">
-                      <div class="fw-bold" th:text="'Instituição: ' + ${skill.instituicao}"></div>
-                      <span th:text="'Curso: ' +${skill.nome}"></span><br>
-                      <span th:text="'Data Início: ' +${skill.dataInicio}" ></span><br>
-                      <span th:text="'Data Término: ' +${skill.dataFim}" ></span><br>
+                      <div class="fw-bold" th:text="'Instituição: ' + ${cert.instituicao}"></div>
+                      <span th:text="'Curso: ' +${cert.nome}"></span><br>
+                      <span th:text="'Data Início: ' +${cert.dataInicio}" ></span><br>
+                      <span th:text="'Data Término: ' +${cert.dataFim}" ></span><br>
                   </div>
-                  <a th:href="@{/certificado/{id}(id=${skill.id})}" class="btn btn-sm btn-danger" >Excluir</a>
-                  <a class="btn btn-sm btn-dark">Editar</a>
+                   <div class="d-flex gap-2">
+                      <a th:href="@{/certificado/{id}(id=${cert.id})}" 
+                        class="btn btn-danger btn-lg">
+                        <i class="bi bi-trash"></i> Excluir</a>
+
+                      <a th:href="@{/editar/cert/{id}(id=${cert.id})}" 
+                        class="btn btn-dark btn-lg">
+                        <i class="bi bi-pencil-square"></i> Editar </a>
+                    </div>
+
               </li>
           </ul>
       </div>

@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.swing.table.AbstractTableModel;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,6 +46,7 @@ public class AutoAvaliacaoController {
         if(usuario.isPresent()){
             AutoAvaliacao autoAvaliacao = modelMapper.map(request, AutoAvaliacao.class);
             autoAvaliacao.setUsuario(usuario.get());
+            autoAvaliacao.setDataAutoAvaliacao(LocalDate.now());
             autoAvaliacaoService.cadastrarAutoAvaliacao(autoAvaliacao);
             return ResponseEntity.status(HttpStatus.CREATED).body(autoAvaliacao);
         }else{

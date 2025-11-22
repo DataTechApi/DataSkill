@@ -1,78 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DATASKILL</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  />
-  <link th:href="@{/footer/styles.css}" rel="stylesheet" />
-  <link th:href="@{/tema/tema.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DATASKILL</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+    />
+    <link th:href="@{/footer/styles.css}" rel="stylesheet"/>
+    <link th:href="@{/tema/tema.css}" rel="stylesheet"/>
 </head>
 <body>
 
-  <header id="header">
+<header id="header">
     <div th:insert="/fragments/header-colaborador :: cabecalho-colaborador"></div>
-  </header>
-  <div class="switch">
+</header>
+<div class="switch">
     <label class="form-check-label text-white"></label>
     <div class="form-check form-switch">
-      <input class="form-check-input" type="checkbox" id="toggleMode">
+        <input class="form-check-input" type="checkbox" id="toggleMode">
     </div>
     <label class="form-check-label"></label>
-  </div>
-
-  <div class="container mt-4  d-flex justify-content-center align-items-center">
-      <div class="row w-100">
-          <div class="col-md-6">
-              <h2 class="card-header text-center">Cadastro de Experiência</h2>
-              <form action="#" th:action="@{/experiencia/{id}(id=${experiencia.id})}" th:object="${experiencia}" method="POST" class="mt-4">
-                  <input type="hidden" name="_method" value="put"/>
-
-                  <div class="mb-3">
-                      <label for="titulo" class="form-label">Empresa</label>
-                      <input type="text" th:field="*{nomeEmpresa}" class="form-control" id="titulo" placeholder="Nome da empresa" required />
-                  </div>
-
-                  <div class="mb-3">
-                      <label for="cargo" class="form-label">Cargo</label>
-                      <input type="text" th:field="*{cargo}" class="form-control" id="cargo" placeholder="Cargo" required />
-                  </div>
-
-                  <div class="row mb-3">
-                      <div class="col-sm-6">
-                          <label for="datainicio" class="form-label">Data Início</label>
-                          <input type="text" th:field="*{dataInicio}" class="form-control" id="datainicio" placeholder="DD/MM/AAAA" required />
-                      </div>
-                      <div class="col-sm-6">
-                          <label for="datafim" class="form-label">Data Término</label>
-                          <input type="text" th:field="*{dataFim}" class="form-control" id="datafim" placeholder="DD/MM/AAAA" />
-                      </div>
-                  </div>
-
-                  <div class="mb-3">
-                      <label for="descricao" class="form-label">Descrição</label>
-                      <textarea th:field="*{descricao}" class="form-control" id="descricao" rows="5" placeholder="Descreva suas atividades e conquistas" required></textarea>
-                  </div>
-                  <div class="d-flex gap-2">
-  <button type="submit" class="btn btn-dark btn-lg flex-fill">Cadastrar</button>
-  <a th:href="@{/colaborador/experiencia}" class="btn btn-secondary btn-lg flex-fill">Cancelar</a>
 </div>
 
-              </form>
-          </div>
-      </div>
-  </div>
+<div class="container mt-4  d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <div class="col-md-6">
+            <h2 class="card-header text-center">Edição de Experiência</h2>
+            <form  th:action="@{/experiencia/{id}(id=${experiencia.id})}" th:object="${experiencia}"
+                  method="POST" class="mt-4">
+                <input type="hidden" name="_method" value="put"/>
 
-  <footer id="footer" class="mt-5">
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Empresa</label>
+                    <input type="text" th:field="*{nomeEmpresa}" class="form-control" id="titulo"
+                           placeholder="Nome da empresa" required/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cargo" class="form-label">Cargo</label>
+                    <input type="text" th:field="*{cargo}" class="form-control" id="cargo" placeholder="Cargo"
+                           required/>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-6">
+                        <label for="datainicio" class="form-label">Data Início</label>
+                        <input type="text" th:field="*{dataInicio}" class="form-control" id="datainicio"
+                               placeholder="DD/MM/AAAA" required/>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="datafim" class="form-label">Data Término</label>
+                        <input type="text" th:field="*{dataFim}" class="form-control" id="datafim"
+                               placeholder="DD/MM/AAAA"/>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea th:field="*{descricao}" class="form-control" id="descricao" rows="5"
+                              placeholder="Descreva suas atividades e conquistas" required></textarea>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-dark btn-lg flex-fill">Cadastrar</button>
+                    <a th:href="@{/colaborador/experiencia}" class="btn btn-secondary btn-lg flex-fill">Cancelar</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="mt-5">
     <div th:insert="fragments/footer :: rodape-principal"></div>
-  </footer>
+</footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" th:src="@{/script/script.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" th:src="@{/script/script.js}"></script>
 </body>
 </html>

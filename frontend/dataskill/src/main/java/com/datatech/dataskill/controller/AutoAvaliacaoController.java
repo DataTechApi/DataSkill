@@ -7,9 +7,8 @@ import com.datatech.dataskill.entities.dtos.request.CertificadoDTORequest;
 import com.datatech.dataskill.entities.dtos.response.AutoAvaliacaoDTOResponse;
 import com.datatech.dataskill.entities.dtos.response.CertificadoDTOResponse;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -41,5 +40,16 @@ public class AutoAvaliacaoController {
     public String deletar(@PathVariable Long id){
         autoAvaliacaoClient.deletarAutoAvalicao(id);
         return "redirect:/colaborador/autoavaliacao";
+    }
+    @GetMapping("/editar/auto/{id}")
+    public String editar(@PathVariable Long id, Model model){
+       AutoAvaliacaoDTOResponse autoAvaliacao = autoAvaliacaoClient.buscarPorId(id);
+        model.addAttribute("autoavaliacao",autoAvaliacao);
+        return "/colaborador/editar-autoavaliacao";
+    }
+    @PutMapping("/autoavaliacao/{id}")
+    public String alterarAutoAvaliacao(@ModelAttribute AutoAvaliacaoDTOResponse autoAvaliacao, @PathVariable Long id){
+        autoAvaliacaoClient.alterarAutoAvaliacao(autoAvaliacao.getId(), autoAvaliacao);
+        return ("redirect:/colaborador/autoavaliacao");
     }
 }
