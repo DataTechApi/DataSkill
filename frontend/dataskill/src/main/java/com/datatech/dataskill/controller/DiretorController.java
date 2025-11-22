@@ -2,6 +2,12 @@ package com.datatech.dataskill.controller;
 
 import java.util.List;
 
+import com.datatech.dataskill.entities.dtos.request.HardSkillDTORequest;
+import com.datatech.dataskill.entities.dtos.request.UsuarioDTORequest;
+import com.datatech.dataskill.entities.dtos.response.HardSkillDTOResponse;
+import com.datatech.dataskill.entities.enums.Cargo;
+import com.datatech.dataskill.entities.enums.Departamento;
+import com.datatech.dataskill.entities.enums.Hard;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,10 +29,7 @@ public class DiretorController {
     }
 
     
-    @GetMapping("/diretor/cadastrar")
-    public String cadastrar() {
-        return "diretor/cadastrar";
-    }
+
 
     @GetMapping("/diretor/listar")
     public ModelAndView listarTodos() {
@@ -39,6 +42,16 @@ public class DiretorController {
     public ModelAndView salvarUsuario(Usuario usuario) {
         dataskillService.salvarUsuario(usuario);
         return new ModelAndView("redirect:/diretor/listar");
+    }
+    @GetMapping("/diretor/cadastrar")
+    public ModelAndView cadastrar(){
+        UsuarioDTORequest request = new UsuarioDTORequest();
+        ModelAndView mv = new ModelAndView("diretor/cadastrar");
+        mv.addObject("request", request);
+        mv.addObject("departamento", Departamento.values());
+        mv.addObject("cargo", Cargo.values());
+        return mv;
+
     }
 
 }
