@@ -2,12 +2,8 @@ package com.datatech.dataskill.entity.model;
 
 import com.datatech.dataskill.entity.enums.Cargo;
 import com.datatech.dataskill.entity.enums.Departamento;
-import com.datatech.dataskill.entity.enums.Hard;
-import com.datatech.dataskill.entity.enums.Soft;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.engine.internal.Cascade;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
 
@@ -51,7 +47,7 @@ public class Usuario {
     private List<Certificado> certificados;
 
     @OneToMany(mappedBy = ("usuario"))
-    private List<AutoAvaliacao> autoAvalicao;
+    private List<AutoAvaliacao> autoAvaliacao;
 
 
     }

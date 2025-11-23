@@ -3,6 +3,8 @@ package com.datatech.dataskill.controller;
 import com.datatech.dataskill.entity.dto.request.UsuarioDTORequest;
 import com.datatech.dataskill.entity.dto.response.UsuarioDTOResponse;
 import com.datatech.dataskill.entity.dto.response.UsuarioPerfilDTOResponse;
+import com.datatech.dataskill.entity.enums.Cargo;
+import com.datatech.dataskill.entity.enums.Departamento;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -55,8 +58,8 @@ public class UsuarioController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200")})
     public ResponseEntity<Iterable<UsuarioDTOResponse>> listarUsuarios(){
         Iterable<Usuario> usuarios = usuarioService.listarUsuarios();
-        Iterable<UsuarioDTOResponse> usuarioDTO = modelMapper.map(usuarios, new TypeToken<List<UsuarioDTOResponse>>(){}.getType());
-        return ResponseEntity.ok(usuarioDTO);
+       Iterable<UsuarioDTOResponse> usuarioDTO = modelMapper.map(usuarios, new TypeToken<List<UsuarioDTOResponse>>(){}.getType());
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioDTO);
     }
 
     @GetMapping("/{id}")
@@ -68,7 +71,31 @@ public class UsuarioController {
         }else{
             return ResponseEntity.notFound().build();
         }
-
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarUsuario(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+            usuarioService.deletarUsuario(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Usuário deletado com sucesso!!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!!");
+        }
+    }
+    @PutMapping("/{id}")
+     public ResponseEntity alterarUsuario(@PathVariable Long id, @RequestBody UsuarioDTORequest request){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+            usuario.get().setNome(request.nome());
+            usuario.get().setCargo(Cargo.valueOf(request.cargo()));
+            usuario.get().setEmail(request.email());
+            usuario.get().setDepartamento(Departamento.valueOf(request.departamento()));
+            usuario.get().setTelefone(request.telefone());
+            usuarioService.alterarUsuario(usuario.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Usuário alterado com sucesso!!!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!!!");
+        }
     }
 
 }

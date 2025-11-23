@@ -26,13 +26,13 @@
     <label class="form-check-label"></label>
 </div>
 
-<!-- Lista de usuários -->
+
 <div class="container mt-4 mb-5">
     <div th:if="${#lists.isEmpty(usuarios)}" class="alert alert-info">
         Nenhum usuário cadastrado.
     </div>
 
-    <ul class="list-group" data-th-each="user : ${usuarios}">
+    <ul class="list-group" th:each="user : ${usuarios}">
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
                 <div class="fw-bold" th:text="${user.nome}">Nome do Usuário</div>
@@ -44,11 +44,11 @@
                 </small>
             </div>
             <div class="d-flex gap-2">
-                <a
+                <a th:href="@{/usuario/{id}(id=${user.id})}"
                    class="btn btn-danger btn-lg">
                     <i class="bi bi-trash"></i> Excluir</a>
 
-                <a
+                <a th:href="@{/editar/user/{id}(id=${user.id})}"
                    class="btn btn-dark btn-lg">
                     <i class="bi bi-pencil-square"></i> Editar </a>
             </div>

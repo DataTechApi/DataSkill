@@ -13,6 +13,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name= "auto_avaliacao")
 public class AutoAvaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,7 @@ public class AutoAvaliacao {
     private String descricao;
 
     private LocalDate dataAutoAvaliacao;
+
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     @JsonIgnore

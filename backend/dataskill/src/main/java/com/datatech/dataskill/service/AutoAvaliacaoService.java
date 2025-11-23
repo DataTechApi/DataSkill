@@ -32,6 +32,7 @@ public class AutoAvaliacaoService {
     public Optional<AutoAvaliacao> buscarAutoAvaliacaoId(Long id) {
         return autoAvaliacaoRepository.findById(id);
     }
+
     public void alterarAutoAvaliacao(AutoAvaliacao autoAvaliacao){
         autoAvaliacaoRepository.save(autoAvaliacao);
     }
