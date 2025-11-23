@@ -26,15 +26,16 @@
 </div>
 
 <main class="container mt-5">
-    <div class="card">
+    <div class="row h-100">
         <div class="card-header">
-            <h4 class="mb-0">Cadastro de Colaboradores</h4>
+            <h2 class="mb-0">Edição de Colaboradores</h2>
         </div>
         <div class="card-header">
             <div id="successMessage" class="alert alert-success d-none" role="alert">
                 Colaborador cadastrado com sucesso!
             </div>
-            <form action="#" th:action="@{/usuario/{id}(id=${usuario.id})}" th:object="${usuario}" method="post" class="mt-4">
+            <form action="#" th:action="@{/usuario/{id}(id=${usuario.id})}" th:object="${usuario}" method="post"
+                  class="mt-4">
                 <input type="hidden" name="_method" value="put"/>
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>

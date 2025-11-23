@@ -3,6 +3,7 @@ package com.datatech.dataskill.controller;
 import com.datatech.dataskill.client.UsuarioClient;
 import com.datatech.dataskill.entities.dtos.request.UsuarioDTORequest;
 import com.datatech.dataskill.entities.dtos.response.UsuarioDTOResponse;
+import com.datatech.dataskill.entities.dtos.response.UsuarioPerfilDTO;
 import com.datatech.dataskill.entities.enums.Cargo;
 import com.datatech.dataskill.entities.enums.Departamento;
 import com.datatech.dataskill.entities.model.Usuario;
@@ -59,6 +60,12 @@ public class DiretorController {
     public String alterarUsuario(@ModelAttribute UsuarioDTOResponse usuario, @PathVariable Long id){
         usuarioClient.alterarUsuario(usuario.getId(), usuario);
         return ("redirect:/diretor/listar");
+    }
+    @GetMapping("/visualizar/user/{id}")
+    public String visualizarPerfil(@PathVariable Long id, Model model){
+        UsuarioPerfilDTO usuario = usuarioClient.buscarPerfilId(id);
+        model.addAttribute("usuario",usuario);
+        return "/diretor/visualizar";
     }
 
 }

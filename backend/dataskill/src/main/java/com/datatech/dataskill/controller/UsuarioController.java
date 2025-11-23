@@ -97,5 +97,15 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!!!");
         }
     }
+    @GetMapping("/perfil/{id}")
+    public ResponseEntity<UsuarioDTOResponse> buscarPerfilId(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+            UsuarioDTOResponse perfilDTO = modelMapper.map(usuario.get(), UsuarioDTOResponse.class);
+            return ResponseEntity.ok((perfilDTO));
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

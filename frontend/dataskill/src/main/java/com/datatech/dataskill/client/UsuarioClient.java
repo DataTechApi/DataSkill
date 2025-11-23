@@ -2,6 +2,7 @@ package com.datatech.dataskill.client;
 
 import com.datatech.dataskill.entities.dtos.request.UsuarioDTORequest;
 import com.datatech.dataskill.entities.dtos.response.UsuarioDTOResponse;
+import com.datatech.dataskill.entities.dtos.response.UsuarioPerfilDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,4 +22,8 @@ public interface UsuarioClient {
 
     @RequestMapping(method = RequestMethod.PUT, value="/usuario/{id}")
     void alterarUsuario(@PathVariable("id") Long id, @RequestBody UsuarioDTOResponse request);
+
+    @RequestMapping(method= RequestMethod.GET, value="/usuario/perfil/{id}")
+    UsuarioPerfilDTO buscarPerfilId(@PathVariable Long id);
+
 }
