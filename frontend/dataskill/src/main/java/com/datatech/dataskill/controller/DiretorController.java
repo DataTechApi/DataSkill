@@ -6,6 +6,7 @@ import com.datatech.dataskill.entities.dtos.response.UsuarioDTOResponse;
 import com.datatech.dataskill.entities.dtos.response.UsuarioPerfilDTO;
 import com.datatech.dataskill.entities.enums.Cargo;
 import com.datatech.dataskill.entities.enums.Departamento;
+import com.datatech.dataskill.entities.enums.Hard;
 import com.datatech.dataskill.entities.model.Usuario;
 import com.datatech.dataskill.service.DataskillService;
 import org.springframework.stereotype.Controller;
