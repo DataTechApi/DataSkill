@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @FeignClient(name="UsuarioClient", url = "${spring.feign.url}")
 public interface UsuarioClient {
     @RequestMapping(method= RequestMethod.POST, value="/usuario")
@@ -25,5 +27,8 @@ public interface UsuarioClient {
 
     @RequestMapping(method= RequestMethod.GET, value="/usuario/perfil/{id}")
     UsuarioPerfilDTO buscarPerfilId(@PathVariable Long id);
+
+    @RequestMapping(method= RequestMethod.GET, value="/usuario/hard/{skill}")
+    List<UsuarioDTOResponse> buscarUsuarioHard(@PathVariable String skill);
 
 }

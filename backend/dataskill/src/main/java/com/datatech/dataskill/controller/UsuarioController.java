@@ -107,5 +107,11 @@ public class UsuarioController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/hard/{skill}")
+    public ResponseEntity<List<UsuarioPerfilDTOResponse>> buscarUsuarioHard(@PathVariable String skill){
+        List<UsuarioPerfilDTOResponse> usuarios = usuarioService.buscarUsuarioHard(skill);
+
+        return ResponseEntity.status(HttpStatus.OK).body(usuarios);
+    }
 
 }
