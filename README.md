@@ -11,7 +11,7 @@ O objetivo é **facilitar o processo de gestão e busca de talentos** dentro da 
 ## 📍 Índice do projeto 
 <center>
 
-| [Requisitos](#requisitos) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Estrutura do Projeto](#estrutura-do-projeto) | [Backlog](#backlog-do-produto) | [Cronograma](#cronograma-de-sprints) | [Como Executar o Projeto](#como-executar-o-projeto) | [Equipe](#integrantes-do-projeto) |
+| [Requisitos](#requisitos) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Estrutura do Projeto](#estrutura-do-projeto) | [Backlog](#backlog-do-produto) | [Cronograma](#cronograma-de-sprints) | [Como Executar o Projeto](#como-executar-o-projeto) |
 
 </center>
 
