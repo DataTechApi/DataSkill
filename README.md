@@ -81,7 +81,7 @@ Abaixo está a estrutura real do projeto:
 |---------|----------|---------------------|---------|
 | **Sprint 1** | 08/09 a 28/09 | Estrutura inicial do projeto, setup de ambiente, CRUD de colaboradores, início do front-end | ✅ Concluída |
 | **Sprint 2** | 06/10 a 26/10 | Dashboard de competências, filtros e autoavaliação |  ✅ Concluída |
-| **Sprint 3** | 03/11 a 23/11 | Ajustes finais, documentação completa e deploy | ⏳ Pendente |
+| **Sprint 3** | 03/11 a 23/11 | Ajustes finais, documentação completa e deploy |✅ Concluída |
 
 ---
 
@@ -105,14 +105,13 @@ Abaixo está a estrutura real do projeto:
 
 | #  | Prioridade | User Story                                                                                                   | Sprint | Status       |
 |----|------------|--------------------------------------------------------------------------------------------------------------|--------|--------------|
-| 1  | Alta       | Como gestor, quero visualizar o perfil dos colaboradores, para buscar novos talentos para meu setor.    | 1     | Em andamento   |
-| 2  | Alta       | Como gestor, quero visualizar um Dashboard, para que eu possa ver a relação de competência de uma área, ou de diversos colaboradores.| 2      | Pendente  |
-| 3  | Média      | Como usuário, quero realizar uma auto avaliação, para saber se a visão do meu gestor está contingente.  | 2      | Pendente     |
-| 4  | Alta       | Como gestor, quero filtrar as competências do colaborador para saber se encaixa em outra atividade.     | 2     | Pendente    |
-| 5  | Alta       | Como gestor, quero alocar algum colaboradores que se encaixam nas skills desejadas, para mapear melhor os talentos do meu departamento. | 2      | Pendente |
-| 6  | Alta       | Como usuário, quero cadastrar minhas competências para ficar à mostra a todos os supervisores/diretores que tiverem interesse. | 1      | Em andamento |
-| 7  | Média       | Como usuário, eu quero visualizar os perfis dos colegas em uma interface intuitiva, com cards organizados por competências, setor e nível de proficiência, para que eu possa navegar e identificar talentos internos. | 1      | Em andamento |
-| 8  | Média       | Como usuário, quero que o produto seja entregue com todas a documentações e manuais de usuário, para que haja uma melhor organização e orientação quando formos usar o sistema | 3  | Pendente|
+| 1  | Alta       | Como gestor, quero visualizar o perfil dos colaboradores, para buscar novos talentos para meu setor.    | 1     | Concluido   |
+| 2  | Alta       | Como gestor, quero visualizar um Dashboard, para que eu possa ver a relação de competência de uma área, ou de diversos colaboradores.| 2      | Concluido  |
+| 3  | Média      | Como usuário, quero realizar uma auto avaliação, para saber se a visão do meu gestor está contingente.  | 2      | Concluido     |
+| 4  | Alta       | Como gestor, quero filtrar as competências do colaborador para saber se encaixa em outra atividade.     | 2     | Concluido    |
+| 5  | Alta       | Como usuário, quero cadastrar minhas competências para ficar à mostra a todos os supervisores/diretores que tiverem interesse. | 1      | Concluido |
+| 6 | Média       | Como usuário, eu quero visualizar os perfis dos colegas em uma interface intuitiva, com cards organizados por competências, setor e nível de proficiência, para que eu possa navegar e identificar talentos internos. | 1      | Concluido|
+| 7  | Média       | Como usuário, quero que o produto seja entregue com todas a documentações e manuais de usuário, para que haja uma melhor organização e orientação quando formos usar o sistema | 3  | Concluido|
 
 ## Backlog das Sprints 
 
