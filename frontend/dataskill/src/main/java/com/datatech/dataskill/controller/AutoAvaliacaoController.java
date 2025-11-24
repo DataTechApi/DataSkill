@@ -1,11 +1,8 @@
 package com.datatech.dataskill.controller;
 
 import com.datatech.dataskill.client.AutoAvaliacaoClient;
-import com.datatech.dataskill.client.CertificadoClient;
 import com.datatech.dataskill.entities.dtos.request.AutoAvaliacaoDTORequest;
-import com.datatech.dataskill.entities.dtos.request.CertificadoDTORequest;
 import com.datatech.dataskill.entities.dtos.response.AutoAvaliacaoDTOResponse;
-import com.datatech.dataskill.entities.dtos.response.CertificadoDTOResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

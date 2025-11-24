@@ -42,10 +42,12 @@
     }
     .light-mode .form-control, 
     .light-mode .btn .form-select{
-      background-color: #ece3e3;
-      color: #1c1c1c;
+      background-color: #e0caca;
+      color: black;
       border: 1px solid #ccc;
     }
+   
+   
     .light-mode .form-control::placeholder {
       color: #666;
     }

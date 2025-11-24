@@ -4,14 +4,8 @@ import com.datatech.dataskill.client.DashboardClient;
 import com.datatech.dataskill.client.UsuarioClient;
 import com.datatech.dataskill.entities.dtos.response.DashboardDTOResponse;
 import com.datatech.dataskill.entities.dtos.response.UsuarioDTOResponse;
-import com.datatech.dataskill.entities.enums.Cargo;
-import com.datatech.dataskill.entities.enums.Departamento;
-import com.datatech.dataskill.entities.enums.Hard;
-import com.datatech.dataskill.entities.model.Usuario;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,17 +36,6 @@ public class DashboardController {
         mv.addObject("usuarios", usuarios);
         return mv;
     }
-//    @GetMapping("/diretor/listar-usuarios")
-//    public String detalhesSkill(@RequestParam String skill, Model model) {
-//        // Recebe apenas o nome da skill
-//        List<UsuarioDTOResponse> usuarios = usuarioClient.buscarUsuarioHard(skill);
-//        //model.addAttribute("skill", skill);
-//        model.addAttribute("usuarios", usuarios);
-//
-//        // Retorna para a página de detalhes
-//        return "listar-usuarios";
-//    }
-
 }
 
 

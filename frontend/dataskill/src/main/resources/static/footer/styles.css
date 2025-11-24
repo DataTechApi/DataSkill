@@ -1,9 +1,12 @@
 #footer {
-  width: 100%;
-    position: fixed;
+   position: relative;   /* volta ao fluxo normal da página */
+    width: 100%;
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 10px 0;      /* altura do rodapé */
+    font-size: 0.9rem;
     bottom: 0;
-    z-index: 1030;
-    height: 60px;
-    
+    min-height: 60px;
 }
 
