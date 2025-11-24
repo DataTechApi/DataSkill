@@ -1,11 +1,10 @@
 package com.datatech.dataskill.entity.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -14,6 +13,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name= "auto_avaliacao")
 public class AutoAvaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +21,10 @@ public class AutoAvaliacao {
 
     private String descricao;
 
-    private Date dataAutoAvaliacao;
+    private LocalDate dataAutoAvaliacao;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnore
+    private Usuario usuario;
 }

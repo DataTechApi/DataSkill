@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Autoavaliação - DATASKILL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link th:href="@{/footer/styles.css}" rel="stylesheet" />
   <link th:href="@{/tema/tema.css}" rel="stylesheet" />
@@ -30,63 +30,46 @@
      
       <div class="col-md-6">
         <h2 class="card-header">Autoavaliação</h2>
-        <form class="mt-4">
-          <div class="mb-3">
-            <label for="nome" class="form-label">Nome do Colaborador</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required>
-          </div>
+        <form class="mt-4" action="/cadastrarAuto" method="POST">
+
           <div class="mb-3">
             <label for="descricao" class="form-label">Descrição</label>
-            <textarea class="form-control" id="descricao" rows="5" placeholder="Descreva sua autoavaliação..." required></textarea>
+            <textarea class="form-control" id="descricao" name="descricao" rows="5" placeholder="Descreva sua autoavaliação..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-dark btn-lg w-100">Enviar Autoavaliação</button>
+          <button type="submit" class="btn btn-dark btn-lg w-100">Cadastrar</button>
         </form>
       </div>
      
       <div class="col-md-6">
         <h2 class="card-header">Autoavaliação Registrada</h2>
-        <ul class="list-group mt-4">
-          <li class="list-group-item">
-            <strong>Colaborador:</strong> Ana Costa<br>
-            <strong>Descrição:</strong> Acredito que evoluí bastante na comunicação com a equipe e na entrega de resultados. Estou mais confiante em liderar projetos e contribuir com ideias estratégicas.
-          </li>
-        </ul>
+          <ul class="list-group mt-4">
+              <li class="list-group-item d-flex justify-content-between align-items-start"
+                  th:each="auto : ${auto}">
+
+                  <div class="ms-2 me-auto">
+                      <div class="fw-bold" th:text="'Auto-Avaliação: ' "></div>
+                      <div class="fw-bold" th:text=" ${auto.descricao}"></div>
+                      <div class="fw-bold" th:text="'Data da Auto Avaliação: ' + ${auto.dataAutoAvaliacao}"></div>
+
+                  </div>
+                   <div class="d-flex gap-2">
+                      <a th:href="@{/autoavaliacao/{id}(id=${auto.id})}" 
+                        class="btn btn-danger btn-lg">
+                        <i class="bi bi-trash"></i> Excluir</a>
+
+                      <a th:href="@{/editar/auto/{id}(id=${auto.id})}"
+                        class="btn btn-dark btn-lg">
+                        <i class="bi bi-pencil-square"></i> Editar </a>
+                    </div>
+              </li>
+          </ul>
       </div>
     </div>
   </div>
 
-  <footer id="footer" class="mt-5">
-    <div th:insert="fragments/footer :: rodape-principal"></div>
-  </footer>
+ 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const toggle = document.getElementById('toggleMode');
-    const body = document.body;
-
-   
-    function applyTheme(theme) {
-      if (theme === 'light') {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        toggle.checked = true;
-      } else {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        toggle.checked = false;
-      }
-    }
-
-    
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    applyTheme(savedTheme);
-
-    
-    toggle.addEventListener('change', () => {
-      const newTheme = toggle.checked ? 'light' : 'dark';
-      localStorage.setItem('theme', newTheme);
-      applyTheme(newTheme);
-    });
-  </script>
+  <script type="text/javascript" th:src="@{/script/script.js}"></script>
 </body>
 </html>

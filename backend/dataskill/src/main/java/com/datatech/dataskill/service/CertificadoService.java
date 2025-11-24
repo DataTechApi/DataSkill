@@ -5,6 +5,7 @@ import com.datatech.dataskill.repository.CertificadoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CertificadoService {
@@ -14,35 +15,21 @@ public class CertificadoService {
     public CertificadoService(CertificadoRepository certificadoRepository) {
         this.certificadoRepository = certificadoRepository;
     }
-
-    // Criar
-    public Certificado cadastrarCertificado(Certificado certificado) {
-        return certificadoRepository.save(certificado);
+    public void cadastrarCertificado(Certificado certificado) {
+        certificadoRepository.save(certificado);
     }
 
-    // Listar
-    public List<Certificado> listarCertificados() {
+    public List<Certificado> listarCertificados(Long userId) {
 
-        return certificadoRepository.findAll();
+        return certificadoRepository.findCertificado(userId);
     }
+    public Optional<Certificado> buscarPorId(Long id) {
+        return certificadoRepository.findById(id);
 
-    // Buscar ID
-    public Certificado buscarPorId(Long id) {
-        return certificadoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Certificado não encontrado com ID: " + id));
     }
-
-    // Atualizar
-    public Certificado atualizarCertificado(Long id, Certificado request) {
-        Certificado existente = buscarPorId(id);
-        existente.setNome(request.getNome());
-        existente.setDataInicio(request.getDataInicio());
-        existente.setDataFim(request.getDataFim());
-        existente.setInstituicao(request.getInstituicao());
-        return certificadoRepository.save(existente);
+    public void atualizarCertificado( Certificado certificado) {
+        certificadoRepository.save(certificado);
     }
-
-    // Deletar
     public void deletarCertificado(Long id) {
         if (!certificadoRepository.existsById(id)) {
             throw new RuntimeException("Certificado não encontrado com ID: " + id);

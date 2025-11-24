@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATASKILL</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"/>
+    <link th:href="@{/footer/styles.css}" rel="stylesheet"/>
+    <link th:href="@{/tema/tema.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<header id="header">
+    <div th:insert="/fragments/header-colaborador :: cabecalho-colaborador"></div>
+</header>
+<div class="switch">
+    <label class="form-check-label text-white"></label>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggleMode">
+    </div>
+    <label class="form-check-label"></label>
+</div>
+
+<div class="container mt-5">
+    <div class="row h-100">
+
+        <div class="col-md-5">
+            <h2 class="card-header">Edição de Certificado</h2>
+            <form action="#" th:action="@{/certificado/{id}(id=${certificado.id})}" th:object="${certificado}"
+                  method="POST" class="mt-4">
+                <input type="hidden" name="_method" value="put"/>
+                <div class="mb-3">
+                    <label for="instituicao" class="form-label">Instituição</label>
+                    <input type="text" th:field="*{instituicao}" class="form-control" id="instituicao"
+                           placeholder="Nome da instituição">
+                </div>
+                <div class="mb-3">
+                    <label for="curso" class="form-label">Nome do Curso</label>
+                    <input type="text" th:field="*{nome}" class="form-control" id="curso" placeholder="Nome do curso">
+                </div>
+                <div class="mb-3">
+                    <label for="dataInicio" class="form-label">Data de Início</label>
+                    <input type="text" th:field="*{dataInicio}" class="form-control" id="dataInicio">
+                </div>
+                <div class="mb-3">
+                    <label for="dataFim" class="form-label">Data de Conclusão</label>
+                    <input type="text" th:field="*{dataFim}" class="form-control" id="dataFim">
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-dark btn-lg flex-fill">Cadastrar</button>
+                    <a th:href="@{/colaborador/certificado}" class="btn btn-secondary btn-lg flex-fill">Cancelar</a>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" th:src="@{/script/script.js}"></script>
+</body>
+
+</html>

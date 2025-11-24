@@ -8,7 +8,8 @@ public enum Soft {
     ADAPTABILIDADE,
     PENSAMENTO_CRITICO,
     GESTAO_DE_TEMPO,
-    CRIATIVIDADE;
+    CRiATIVIDADE;
+
 
 
 }

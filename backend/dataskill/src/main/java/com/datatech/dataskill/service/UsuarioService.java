@@ -1,9 +1,11 @@
 package com.datatech.dataskill.service;
 
+import com.datatech.dataskill.entity.dto.response.UsuarioPerfilDTOResponse;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,7 +28,17 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
+    public void deletarUsuario(Long id){
+        usuarioRepository.deleteById(id);
+    }
+    public void alterarUsuario(Usuario usuario){
+        usuarioRepository.save(usuario);
+    }
+
     public Optional<Usuario> buscarPorId(Long id){
         return usuarioRepository.findById(id);
+    }
+    public List<UsuarioPerfilDTOResponse> buscarUsuarioHard(String skill){
+        return usuarioRepository.buscarUsuarioHard(skill);
     }
 }

@@ -10,17 +10,9 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"/>
     <link th:href="@{/footer/styles.css}" rel="stylesheet" />
+     <link th:href="@{/tema/tema.css}" rel="stylesheet" />
 </head>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Cadastro de Soft Skills</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link th:href="@{/tema/tema.css}" rel="stylesheet" />
-</head>
+
 <body>
 
   <header id="header">
@@ -39,7 +31,7 @@
     
       <div class="col-md-6">
         <h2 class="card-header ">Cadastro de Soft Skills</h2>
-        <form action="/cadastrar" method="POST" class="mt-4">
+        <form action="/cadastrarSoft" method="POST" class="mt-4">
           <div class="mb-3">
             <label for="skillName" class="form-label">Nome da Skill</label>
             <select name="nome" class="form-control" id="skillName" required>
@@ -55,61 +47,29 @@
 
      
       <div class="col-md-6">
-        <h2 class="card-header ">Soft Skills Cadastradas</h2>
-        <div class="table-responsive mt-4">
-          <table class="table table-striped ">
-            <thead class=" card-header">
-              <tr class=" card-header">
-                <th >Skill</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr th:each="skill : ${skills}">
-                <td th:text="${skill.name}"></td>
-                <td>
-                  <button class="btn btn-sm btn-warning">Editar</button>
-                  <button class="btn btn-sm btn-danger">Excluir</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+  <h2 class="card-header">Soft Skills Cadastradas</h2>
+
+  <ul class="list-group mt-4">
+    <li class="list-group-item d-flex justify-content-between align-items-center"
+        th:each="skill : ${skill}">
+      <span th:text="${skill.nome}"></span> 
+      <div>
+        <a th:href="@{/softskill/{id}(id=${skill.id})}" 
+          class="btn btn-danger btn-lg">
+          <i class="bi bi-trash"></i> Excluir</a>
       </div>
+    </li>
+  </ul>
+</div>
+
     </div>
   </div>
 
  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const toggle = document.getElementById('toggleMode');
-    const body = document.body;
-   
-    function applyTheme(theme) {
-      if (theme === 'light') {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        toggle.checked = true;
-      } else {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        toggle.checked = false;
-      }
-    }
-    
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    applyTheme(savedTheme);
- 
-    toggle.addEventListener('change', () => {
-      const newTheme = toggle.checked ? 'light' : 'dark';
-      localStorage.setItem('theme', newTheme);
-      applyTheme(newTheme);
-    });
-  </script>
+  <script type="text/javascript" th:src="@{/script/script.js}"></script>
 </body>
-<footer id="footer">
-    <div th:insert="fragments/footer :: rodape-principal"></div>
-  </footer>
+
 </html>
 
 

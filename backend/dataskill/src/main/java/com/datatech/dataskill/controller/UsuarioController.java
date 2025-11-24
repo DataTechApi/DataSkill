@@ -2,6 +2,9 @@ package com.datatech.dataskill.controller;
 
 import com.datatech.dataskill.entity.dto.request.UsuarioDTORequest;
 import com.datatech.dataskill.entity.dto.response.UsuarioDTOResponse;
+import com.datatech.dataskill.entity.dto.response.UsuarioPerfilDTOResponse;
+import com.datatech.dataskill.entity.enums.Cargo;
+import com.datatech.dataskill.entity.enums.Departamento;
 import com.datatech.dataskill.entity.model.Usuario;
 import com.datatech.dataskill.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,23 +43,75 @@ public class UsuarioController {
         URI uri = URI.create(STR."/usuario/\{usuario.getEmail()}");
         return ResponseEntity.created(uri).build();
     }
-    @GetMapping("/{email}")
-    @Operation(summary = "Busca usuário por email", description = "Busca um usuário pelo email cadastrado")
-    @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
-    public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email){
-        Optional<Usuario> usuario = usuarioService.buscarPorEmail(email);
-        if(usuario.isPresent())
-            return ResponseEntity.ok(usuario.get());
-        else
-            return ResponseEntity.notFound().build();
-    }
+//    @GetMapping("/{email}")
+//    @Operation(summary = "Busca usuário por email", description = "Busca um usuário pelo email cadastrado")
+//    @ApiResponses(value = {@ApiResponse(responseCode = "200"),@ApiResponse(responseCode = "404")})
+//    public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email){
+//        Optional<Usuario> usuario = usuarioService.buscarPorEmail(email);
+//        if(usuario.isPresent())
+//            return ResponseEntity.ok(usuario.get());
+//        else
+//            return ResponseEntity.notFound().build();
+//    }
     @GetMapping
     @Operation(summary="Busca todos os usuários no banco de dados", description = "Realiza a busca dos usuários no banco de dados")
     @ApiResponses(value = {@ApiResponse(responseCode = "200")})
     public ResponseEntity<Iterable<UsuarioDTOResponse>> listarUsuarios(){
         Iterable<Usuario> usuarios = usuarioService.listarUsuarios();
-        Iterable<UsuarioDTOResponse> usuarioDTO = modelMapper.map(usuarios, new TypeToken<List<UsuarioDTOResponse>>(){}.getType());
-        return ResponseEntity.ok(usuarioDTO);
+       Iterable<UsuarioDTOResponse> usuarioDTO = modelMapper.map(usuarios, new TypeToken<List<UsuarioDTOResponse>>(){}.getType());
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioDTO);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioPerfilDTOResponse> buscarPorId(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+           UsuarioPerfilDTOResponse perfilDTO = modelMapper.map(usuario.get(), UsuarioPerfilDTOResponse.class);
+            return ResponseEntity.ok((perfilDTO));
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletarUsuario(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+            usuarioService.deletarUsuario(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Usuário deletado com sucesso!!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!!");
+        }
+    }
+    @PutMapping("/{id}")
+     public ResponseEntity alterarUsuario(@PathVariable Long id, @RequestBody UsuarioDTORequest request){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+            usuario.get().setNome(request.nome());
+            usuario.get().setCargo(Cargo.valueOf(request.cargo()));
+            usuario.get().setEmail(request.email());
+            usuario.get().setDepartamento(Departamento.valueOf(request.departamento()));
+            usuario.get().setTelefone(request.telefone());
+            usuarioService.alterarUsuario(usuario.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Usuário alterado com sucesso!!!");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!!!");
+        }
+    }
+    @GetMapping("/perfil/{id}")
+    public ResponseEntity<UsuarioDTOResponse> buscarPerfilId(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+        if(usuario.isPresent()){
+            UsuarioDTOResponse perfilDTO = modelMapper.map(usuario.get(), UsuarioDTOResponse.class);
+            return ResponseEntity.ok((perfilDTO));
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/hard/{skill}")
+    public ResponseEntity<List<UsuarioPerfilDTOResponse>> buscarUsuarioHard(@PathVariable String skill){
+        List<UsuarioPerfilDTOResponse> usuarios = usuarioService.buscarUsuarioHard(skill);
+
+        return ResponseEntity.status(HttpStatus.OK).body(usuarios);
     }
 
 }

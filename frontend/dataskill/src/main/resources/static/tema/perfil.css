@@ -1,0 +1,91 @@
+body {
+    background-color: #121212; /* Preto suave */
+    color: #e0e0e0; /* Cinza claro para texto */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+    background: #1e1e1e; /* Cinza escuro */
+    border: none;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #dcdcdc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.card span.fw-bold {
+    color: #ffffff; /* Branco para destaque */
+}
+
+.text-muted {
+    color: #b0b0b0 !important; /* Cinza médio */
+}
+
+header, footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 15px;
+    text-align: center;
+}
+
+.switch {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+}
+
+.form-check-input {
+    background-color: #333;
+    border-color: #555;
+}
+
+.form-check-input:checked {
+    background-color: #666;
+    border-color: #888;
+}
+.card:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease;
+    box-shadow: 0 6px 16px rgba(255,255,255,0.1);
+}
+/* Light Mode */
+body.light-mode {
+    background-color: #f5f5f5; /* Cinza bem claro */
+    color: #333; /* Texto escuro */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.light-mode .card {
+    background: #ffffff; /* Branco */
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.light-mode .card span.fw-bold {
+    color: #000; /* Preto para destaque */
+}
+
+.light-mode .text-muted {
+    color: #555 !important; /* Cinza médio */
+}
+
+.light-mode header,
+.light-mode footer {
+    background-color: #eaeaea;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+.light-mode .form-check-input {
+    background-color: #ccc;
+    border-color: #aaa;
+}
+
+.light-mode .form-check-input:checked {
+    background-color: #666;
+    border-color: #444;
+}
