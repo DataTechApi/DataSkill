@@ -113,5 +113,11 @@ public class UsuarioController {
 
         return ResponseEntity.status(HttpStatus.OK).body(usuarios);
     }
+    @GetMapping("/soft/{skill}")
+    public ResponseEntity<List<UsuarioPerfilDTOResponse>> buscarUsuarioSoft(@PathVariable String skill){
+        List<UsuarioPerfilDTOResponse> usuarios = usuarioService.buscarUsuarioSoft(skill);
+
+        return ResponseEntity.status(HttpStatus.OK).body(usuarios);
+    }
 
 }

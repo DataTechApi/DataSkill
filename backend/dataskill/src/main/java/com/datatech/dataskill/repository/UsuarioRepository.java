@@ -18,4 +18,10 @@ public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
             "WHERE h.nome LIKE %:skill", nativeQuery = true)
     List<UsuarioPerfilDTOResponse> buscarUsuarioHard(String skill);
 
+    @Query(value = "SELECT u.id,u.nome,u.email,u.cargo,u.departamento,u.telefone " +
+            "FROM usuario u " +
+            "INNER JOIN soft_skill s ON u.id = s.id_usuario " +
+            "WHERE s.nome LIKE %:skill", nativeQuery = true)
+    List<UsuarioPerfilDTOResponse> buscarUsuarioSoft(String skill);
+
     }

@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SoftSkillDTOResponse{
-
-        private String nome;
+    private String name;
+    private Long value;
 }

@@ -31,4 +31,7 @@ public interface UsuarioClient {
     @RequestMapping(method= RequestMethod.GET, value="/usuario/hard/{skill}")
     List<UsuarioDTOResponse> buscarUsuarioHard(@PathVariable String skill);
 
+    @RequestMapping(method= RequestMethod.GET, value="/usuario/soft/{skill}")
+    List<UsuarioDTOResponse> buscarUsuarioSoft(@PathVariable String skill);
+
 }
