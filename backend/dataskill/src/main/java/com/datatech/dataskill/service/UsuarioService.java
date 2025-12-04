@@ -41,4 +41,7 @@ public class UsuarioService {
     public List<UsuarioPerfilDTOResponse> buscarUsuarioHard(String skill){
         return usuarioRepository.buscarUsuarioHard(skill);
     }
+    public List<UsuarioPerfilDTOResponse> buscarUsuarioSoft(String skill){
+        return usuarioRepository.buscarUsuarioSoft(skill);
+    }
 }

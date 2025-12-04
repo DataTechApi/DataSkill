@@ -1,6 +1,7 @@
 package com.datatech.dataskill.service;
 
 import com.datatech.dataskill.entity.dto.response.DashboardDTOResponse;
+import com.datatech.dataskill.entity.dto.response.SoftSkillDTOResponse;
 import com.datatech.dataskill.repository.DashboardRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,8 @@ public class DashboardService {
     }
     public List<DashboardDTOResponse> listarHardkill(){
         return dashboardRepository.listarHardskill();
+    }
+    public List<SoftSkillDTOResponse> listarSoftSkill(){
+        return dashboardRepository.listarSoftskill();
     }
 }

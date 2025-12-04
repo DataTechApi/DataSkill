@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard Diretor</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/footer/styles.css}" rel="stylesheet"/>
+    <link th:href="@{/tema/tema.css}" rel="stylesheet"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #myChart {
+            width: 100% !important;   
+            height: 500px !important; 
+        }
+    </style>
+</head>
+<body >
+    <header id="header">
+    <div th:insert="fragments/header :: cabecalho-principal"></div>
+</header>
+<div class="switch">
+    <label class="form-check-label text-white"></label>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggleMode">
+    </div>
+    <label class="form-check-label"></label>
+</div>
+
+<div class="container mt-7">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <div class="card card-body">
+                <div class="card-header bg-dark text-white">
+                    Dashboard - Hardskill
+                </div>
+                <div class="card-body">
+                    <canvas id="myChart" ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <script th:inline="javascript">
+    var labels = [[${labels}]];
+    var values = [[${values}]];
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+  
+    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, 'rgba(0, 200, 83, 0.9)');   // Verde mais forte
+gradient.addColorStop(1, 'rgba(102, 255, 178, 0.6)'); // Verde claro
+
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Quantidade',
+            data: values,
+            backgroundColor: gradient, // Agora verde
+            borderColor: 'rgba(0, 150, 0, 1)', // Verde sólido para borda
+            borderWidth: 2,
+            borderRadius: 8,  
+            barThickness: 50,
+            maxBarThickness: 60
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Distribuição de Hardskills',
+                font: { size: 20, weight: 'bold' },
+                color: '#333'
+            },
+            legend: {
+                display: true,
+                labels: {
+                    color: '#444',
+                    font: { size: 14 }
+                }
+            },
+            tooltip: {
+                backgroundColor: '#222',
+                titleColor: '#fff',
+                bodyColor: '#ddd',
+                borderColor: '#555',
+                borderWidth: 1
+            },
+            datalabels: {
+                anchor: 'end',
+                align: 'top',
+                color: '#333',
+                font: { weight: 'bold' },
+                formatter: function(value) {
+                    return value;
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#333', font: { size: 13 } },
+                grid: { display: false }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: { stepSize: 1, color: '#333', font: { size: 13 } },
+                grid: { color: 'rgba(200,200,200,0.2)' }
+            }
+        },
+        animation: {
+            duration: 1500,
+            easing: 'easeOutBounce'
+        },
+        onClick: function(evt, elements) {
+            if (elements.length > 0) {
+                var index = elements[0].index;
+                var skill = this.data.labels[index];
+                window.location.href = "/diretor/listar-usuariossoft?skill=" + skill;
+            }
+        }
+    }
+});
+
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" th:src="@{/script/script.js}"></script>
+
+</body>
+</html>
