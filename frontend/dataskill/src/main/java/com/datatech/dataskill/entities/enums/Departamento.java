@@ -4,5 +4,6 @@ public enum Departamento {
     RH,
     TI,
     FINANCEIRO,
-    MANUTENCAO;
+    MANUTENCAO,
+    MARKETING;
 }
